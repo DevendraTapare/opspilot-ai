@@ -1,0 +1,73 @@
+{
+  "source_lock_dataset_sha256": "2c1742d273b966522fcae056a67cee0d3f7f740df850a0224fe16adde40af2ba",
+  "finished_at": "2026-11-18T11:32:02.956583+00:00",
+  "mode": "deterministic operational tests; real MCP/PostgreSQL; no LLM inference",
+  "pytest_exit": 0,
+  "selection": [
+    "tests/test_mcp.py::test_cross_service_and_unauthorized_action_denied",
+    "tests/test_mcp.py::test_actions_disabled_even_with_signed_grant",
+    "tests/test_mcp.py::test_unapproved_actions_fail_closed",
+    "tests/test_mcp.py::test_approved_actions_and_duplicate_requests",
+    "tests/test_durable.py::test_approval_cannot_authorize_changed_arguments_or_run",
+    "tests/test_durable.py::test_raw_resume_value_cannot_create_human_approval",
+    "tests/test_durable.py::test_uncertain_timeout_reconciles_before_redelivery",
+    "tests/test_durable.py::test_hard_process_crash_and_new_process_recovery"
+  ],
+  "counts": {
+    "passed": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 9
+  },
+  "elapsed_seconds": 218.0,
+  "evidence_directory": "artifacts/stage9/20261118T112824Z-485746",
+  "metrics": {
+    "planned_trials": 9,
+    "recorded_trials": 0,
+    "complete": false,
+    "unauthorized_action_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "approval_bypass_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 0
+    },
+    "restart_recovery": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "correct_approval_rejections": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "gates": {
+      "complete_operational_sample": "FAIL",
+      "security": "FAIL",
+      "duplicate_effects": "FAIL",
+      "recovery": "FAIL",
+      "verification": "FAIL"
+    }
+  },
+  "trials": [],
+  "real_model_cases": 0,
+  "release_ready": false
+}

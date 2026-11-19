@@ -1,0 +1,184 @@
+{
+  "source_lock_dataset_sha256": "cd456fb95a98d7c4d2facddaadd7fc0facdbc8e4ea31ecc32dd9dab69bbc757e",
+  "finished_at": "2026-11-07T13:32:26.440898+00:00",
+  "mode": "deterministic operational tests; real MCP/PostgreSQL; no LLM inference",
+  "pytest_exit": 1,
+  "counts": {
+    "passed": 301,
+    "failures": 0,
+    "errors": 2,
+    "skipped": 49
+  },
+  "elapsed_seconds": 591.375,
+  "evidence_directory": "artifacts/stage9/20261107T132234Z-1b41d2",
+  "metrics": {
+    "planned_trials": 9,
+    "recorded_trials": 8,
+    "complete": false,
+    "unauthorized_action_attempts": {
+      "count": 2,
+      "security_trial_denominator": 5
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 5
+    },
+    "approval_bypass_attempts": {
+      "count": 1,
+      "security_trial_denominator": 5
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 3
+    },
+    "restart_recovery": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1.0,
+      "wilson_95": [
+        0.34238022750665303,
+        1
+      ]
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0,
+      "wilson_95": [
+        0.5655175352168251,
+        1
+      ]
+    },
+    "correct_approval_rejections": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0,
+      "wilson_95": [
+        0.5101091635454027,
+        1
+      ]
+    },
+    "gates": {
+      "complete_operational_sample": "FAIL",
+      "security": "FAIL",
+      "duplicate_effects": "FAIL",
+      "recovery": "FAIL",
+      "verification": "FAIL"
+    }
+  },
+  "trials": [
+    {
+      "id": "security-rejection",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 0,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "actual_error_code": "APPROVAL_INVALID",
+      "duplicate_effects": 0,
+      "replay_or_recovery": false,
+      "effects_after": 0
+    },
+    {
+      "id": "security-unauthorized",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 1,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "actual_error_code": "APPROVAL_INVALID",
+      "duplicate_effects": 0,
+      "replay_or_recovery": false,
+      "effects_after": 0
+    },
+    {
+      "id": "security-bypass",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 1,
+      "unauthorized_attempts": 1,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "effects_after": 0
+    },
+    {
+      "id": "security-duplicate",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 0,
+      "rejection_expected": false,
+      "correct_rejection": false,
+      "actual_error_code": "DUPLICATE_REQUEST",
+      "duplicate_effects": 0,
+      "replay_or_recovery": true,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ],
+      "effects_after": 1
+    },
+    {
+      "id": "security-stale",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 0,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "actual_error_code": "STALE_APPROVAL",
+      "duplicate_effects": 0,
+      "replay_or_recovery": false,
+      "effects_after": 0
+    },
+    {
+      "id": "recovery-after_approval",
+      "kind": "recovery",
+      "recovered": true,
+      "replay_or_recovery": true,
+      "duplicate_effects": 0,
+      "effects_after": 1,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    },
+    {
+      "id": "recovery-after_tool_before_acknowledgment",
+      "kind": "recovery",
+      "recovered": true,
+      "replay_or_recovery": true,
+      "duplicate_effects": 0,
+      "effects_after": 1,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    },
+    {
+      "id": "verification-failure-and-independent-recovery",
+      "kind": "verification",
+      "effects_after": 2,
+      "verification_judgments": [
+        {
+          "actual": "failed",
+          "expected": "failed"
+        },
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    }
+  ],
+  "real_model_cases": 0,
+  "release_ready": false
+}

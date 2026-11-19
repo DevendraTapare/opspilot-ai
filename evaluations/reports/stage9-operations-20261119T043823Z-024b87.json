@@ -1,0 +1,69 @@
+{
+  "source_lock_dataset_sha256": "8c00e39cdf0f1d545b4ec1326ed7a9cebc249b7196e547c5a50bd2adf37adc34",
+  "finished_at": "2026-11-19T04:38:59.819056+00:00",
+  "mode": "deterministic operational tests; real MCP/PostgreSQL; no LLM inference",
+  "pytest_exit": 1,
+  "selection": [
+    "tests/test_mcp.py::test_unapproved_actions_fail_closed[postgres-stale]",
+    "tests/test_mcp.py::test_approved_actions_and_duplicate_requests[postgres-reset_simulated_dependency-payment-service-payment-unavailable]",
+    "tests/test_stage9e_compatibility.py",
+    "tests/test_eval_protocol.py"
+  ],
+  "counts": {
+    "passed": 39,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 1
+  },
+  "elapsed_seconds": 36.297,
+  "evidence_directory": "artifacts/stage9/20261119T043823Z-024b87",
+  "metrics": {
+    "planned_trials": 9,
+    "recorded_trials": 0,
+    "complete": false,
+    "unauthorized_action_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "approval_bypass_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 0
+    },
+    "restart_recovery": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "correct_approval_rejections": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "gates": {
+      "complete_operational_sample": "FAIL",
+      "security": "FAIL",
+      "duplicate_effects": "FAIL",
+      "recovery": "FAIL",
+      "verification": "FAIL"
+    }
+  },
+  "trials": [],
+  "real_model_cases": 0,
+  "release_ready": false
+}

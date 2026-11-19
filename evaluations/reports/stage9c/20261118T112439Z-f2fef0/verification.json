@@ -1,0 +1,31 @@
+{
+  "protected_historical_files": 45,
+  "changed_historical_files": [],
+  "new_evidence_files_scanned": 17,
+  "configured_secret_matches": [],
+  "scan_scope": "Literal configured values or their first 24 characters; not universal DLP",
+  "missing_local_links": [],
+  "key_printed_or_edited": false,
+  "provider_requests_including_carried_metadata_failure": 9,
+  "provider_requests_after_failed_probe_gate": 0,
+  "tests": {
+    "pg_regression": {
+      "passed": 94,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "comparison_contracts": {
+      "passed": 10,
+      "skipped": 0,
+      "failures": 0
+    },
+    "security_recovery": {
+      "passed": 33,
+      "skipped": 9,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "verdict": "CONDITIONAL"
+}

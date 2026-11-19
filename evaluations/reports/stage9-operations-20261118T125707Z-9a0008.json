@@ -1,0 +1,71 @@
+{
+  "source_lock_dataset_sha256": "834e1fb559b6b9150542996471f714d092671ad82d6078c27018395ef7aed444",
+  "finished_at": "2026-11-18T13:04:50.619233+00:00",
+  "mode": "deterministic operational tests; real MCP/PostgreSQL; no LLM inference",
+  "pytest_exit": 0,
+  "selection": [
+    "tests/test_agent.py",
+    "tests/test_stage9b_pipeline.py",
+    "tests/test_stage9c_comparison.py",
+    "tests/test_stage9d_diagnosis.py",
+    "tests/test_mcp.py",
+    "tests/test_durable.py"
+  ],
+  "counts": {
+    "passed": 193,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 26
+  },
+  "elapsed_seconds": 462.078,
+  "evidence_directory": "artifacts/stage9/20261118T125707Z-9a0008",
+  "metrics": {
+    "planned_trials": 9,
+    "recorded_trials": 0,
+    "complete": false,
+    "unauthorized_action_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "approval_bypass_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 0
+    },
+    "restart_recovery": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "correct_approval_rejections": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "gates": {
+      "complete_operational_sample": "FAIL",
+      "security": "FAIL",
+      "duplicate_effects": "FAIL",
+      "recovery": "FAIL",
+      "verification": "FAIL"
+    }
+  },
+  "trials": [],
+  "real_model_cases": 0,
+  "release_ready": false
+}

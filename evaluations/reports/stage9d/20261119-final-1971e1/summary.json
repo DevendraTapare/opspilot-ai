@@ -1,0 +1,133 @@
+{
+  "review_date": "2026-11-19",
+  "verdict": "BLOCKED",
+  "root_cause": "Full-schema provider rejection confirmed; exact internal cause unresolved",
+  "local_fixes": "strict fields/types/booleans; safe failure classifications",
+  "files_changed": [
+    "opspilot/agent/providers.py",
+    "opspilot/agent/diagnostics.py",
+    "scripts/diagnose_stage9d.py",
+    "tests/test_stage9d_diagnosis.py",
+    "docs/STAGE_9D_STRICT_DIAGNOSIS_REPORT.md"
+  ],
+  "source_sha256": {
+    "opspilot/agent/providers.py": "bc30ae24144910b6183fc379964f42c7019ad98f434a203a89031fc699d66d72",
+    "opspilot/agent/diagnostics.py": "b228c70aea1495158edfcd7f8ad1e60eeaf18bcc3507eb4ecf23e8c71f0a620e",
+    "scripts/diagnose_stage9d.py": "8cd9147eab62f2963dc186e1309c52231e97d7cd83b47471afbf77996a63bbcf",
+    "tests/test_stage9d_diagnosis.py": "2e8590e7564620124439c0e7a5bddbc7b52823f453c4dc50d741164c215ebb2a",
+    "docs/STAGE_9D_STRICT_DIAGNOSIS_REPORT.md": "1b537619ba81c16b33cde76216305b0ec061dfee2ba02cd90603a14baac80515"
+  },
+  "offline_final_passed": 91,
+  "broad_integration": {
+    "passed": 193,
+    "skipped": 26,
+    "failures": 0,
+    "errors": 0
+  },
+  "focused_integration": {
+    "passed": 98,
+    "skipped": 6,
+    "failures": 1,
+    "errors": 1
+  },
+  "exact_rerun": {
+    "passed": 1,
+    "errors": 1
+  },
+  "final_gate": {
+    "passed": 1,
+    "errors": 0
+  },
+  "approved_maximum_requests": 19,
+  "actual_requests": 5,
+  "live_report": "evaluations\\reports\\stage9d\\20261119T041059Z-ee96b9\\report.json",
+  "probes": [
+    {
+      "probe": "A",
+      "passed": true,
+      "schema_valid": true,
+      "grounding": "not_a_full_diagnosis",
+      "failure_stage": null,
+      "messages_sha256": "c4ee087b791b6cf96e376fab303109db9d527755091d0fddd7d3d7d6e56240b8",
+      "schema_sha256": "61538608539553376776c4f0d3a4a9a876a4bd4c01def7ebaabe93fb71078494",
+      "latency_ms": 328.0
+    },
+    {
+      "probe": "B",
+      "passed": true,
+      "schema_valid": true,
+      "grounding": "not_a_full_diagnosis",
+      "failure_stage": null,
+      "messages_sha256": "26ebce617c58582d3d96e3745bb87f19f75a346e36da952c1bf7b742f4296913",
+      "schema_sha256": "378f26661efdedc02441aed49a682b386d29dc32f8a6d3b78d7b9c262f10802b",
+      "latency_ms": 12578.0
+    },
+    {
+      "probe": "C",
+      "passed": false,
+      "schema_valid": false,
+      "grounding": "not_assessed",
+      "failure_stage": "provider_schema_enforcement",
+      "messages_sha256": "06d057618dbc567376e4d1a89d7a599797b6c5562753be319847505224f6a32b",
+      "schema_sha256": "a947f4e34f68b2fdc19b4232f5be37aa6f1c11b858723ccc79e149b9225c2a90",
+      "error_code": "MODEL_HTTP_ERROR",
+      "latency_ms": 13796.0
+    },
+    {
+      "probe": "D",
+      "passed": false,
+      "schema_valid": false,
+      "grounding": "not_assessed",
+      "failure_stage": "provider_request_rejected",
+      "messages_sha256": "15c59a02c127ae8b3c65f274d9487d35d09b1febd83d12f18a171e6b50c8d0ae",
+      "schema_sha256": "1dccbdd50da6f646444ce477a9d1a0b9589d5d69a48c780e07207947076690f3",
+      "error_code": "MODEL_RATE_LIMITED",
+      "latency_ms": 9547.0,
+      "bound_tool_call_id": "fc_d5c7324a-9bd7-4805-a015-9ba07be79d74"
+    }
+  ],
+  "full_investigations": 0,
+  "accepted_full_diagnoses": 0,
+  "root_cause_accuracy": null,
+  "reported_input_tokens": 3451,
+  "reported_output_tokens": 555,
+  "partial_estimated_usd": 0.000425325,
+  "unknown_usage_requests": 2,
+  "conservative_accounted_usd": 0.0044604,
+  "invoice_total_usd": null,
+  "fixture_unchanged": true,
+  "action_execution_records": 0,
+  "historical_files_checked": 74,
+  "historical_changed": [],
+  "configured_secret_artifact_scan": {
+    "files": 35,
+    "hit_files": [],
+    "passed": true
+  },
+  "live_file_sha256": {
+    "plan.json": "637ad4e64a0cf638df234b48341f43a7ab367828b57982b15ea5a2978f5fbd33",
+    "report.json": "54b249bddfe846fe26742e3ac32137c0185ebf39a63797ea9713aabe8acf3e27",
+    "requests.json": "84b9f33958a69ff7ab321a2e36636b5f73203caec21a933f694fd496073f0765"
+  },
+  "five_incident_benchmark_allowed": false,
+  "further_live_requests_authorized": false,
+  "limitations": [
+    "Provider C error supplies no useful generation/status/usage",
+    "D token quota rejection; no retry",
+    "Current live projected packet not retained, only hash",
+    "Intermittent PostgreSQL/Docker setup timeouts not causally resolved"
+  ],
+  "release_hygiene": {
+    "passed": true,
+    "files": 276,
+    "findings": [],
+    "mode": "local-candidate-files"
+  },
+  "docker": {
+    "review_database": "exited",
+    "volume_retained": "opspilot-stage7_stage7-data",
+    "other_containers_or_volumes_modified": false
+  },
+  "post_live_lint": "passed",
+  "post_live_format": "passed"
+}

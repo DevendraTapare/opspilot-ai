@@ -1,0 +1,155 @@
+{
+  "stage": "9E.1",
+  "verdict": "CONDITIONAL",
+  "stage9f_allowed": false,
+  "provider_requests": 0,
+  "spend_usd": 0,
+  "findings": [
+    "Distinct tools, no exact duplicate calls",
+    "Repeated evidence/schema/hypothesis serialization",
+    "Five investigate decisions without supported finalization",
+    "Health duplicated an existing metric sample",
+    "No smaller round limit or finalization reserve in baseline",
+    "Exact HTTP413 token admission calculation unresolved"
+  ],
+  "limits": {
+    "default_max_model_calls": 14,
+    "default_max_read_calls": 8,
+    "default_max_seconds": 180,
+    "default_max_investigation_rounds": 4,
+    "default_max_estimated_tokens": 160000,
+    "default_max_prompt_estimated_tokens": 32000,
+    "output_reservation_per_model_call": 1600
+  },
+  "estimator": "Serialized UTF8 JSON byte-equivalents plus 512 framing units; not actual tokenizer usage",
+  "offline_replay": {
+    "before_requests": 12,
+    "after_requests": 9,
+    "before_restored_reads": 6,
+    "after_restored_reads": 5,
+    "matched_prefix": {
+      "requests": 9,
+      "before_bytes": 109842,
+      "after_bytes": 90225,
+      "evidence_identical": true
+    },
+    "matched_byte_reduction_percent": 17.859288796635163,
+    "before_status": "failed",
+    "after_status": "budget_exhausted",
+    "diagnoses_accepted": 0,
+    "evidence_identical": true,
+    "limitations": [
+      "Assessment bodies 1-4 unavailable; placeholders reproduce transitions only",
+      "No post-change real-provider tokens, latency or diagnosis accuracy measured",
+      "Validated projected evidence restored; no new MCP protocol exercised by replay",
+      "UTF8 byte-equivalent estimates are admission accounting, not exact tokenization"
+    ]
+  },
+  "tests": {
+    "final_unit": {
+      "passed": 167,
+      "skipped": 2,
+      "deselected_real_model": 1
+    },
+    "budget_security": {
+      "passed": 15
+    },
+    "broad_postgres_mcp_security": {
+      "passed": 202,
+      "skipped": 26,
+      "setup_errors": 1,
+      "assertion_failures": 0
+    },
+    "exact_case_rerun": {
+      "passed": 1
+    },
+    "initial_refactor_failures": 44,
+    "intermediate_failures": 2,
+    "expected_dedup_reproduction_failures": 1,
+    "overlap": "Selections overlap; do not add counts"
+  },
+  "test_limitations": [
+    "Postgres connection timeout during one setup; exact unchanged rerun passed, timing cause unresolved",
+    "Last exact-dedup guard correction tested by final unit selection and offline replay; broad PostgreSQL suite preceded this correction",
+    "Existing operational aggregate gates FAIL: zero of nine instrumented operation trials in selected pytest run, rates unmeasured"
+  ],
+  "security_preservation": {
+    "protected_files": 128,
+    "protected_changed": [],
+    "unchanged_validation_ast": {
+      "_read": true,
+      "_refs": true,
+      "_corroborated": true,
+      "root_cause_proposal": true,
+      "remediation_planning": true,
+      "final_recommendation": true,
+      "strict_schema": true,
+      "parse_model_output": true
+    }
+  },
+  "protected_files": 128,
+  "protected_changed": [],
+  "default_model_changed": false,
+  "authorization_policy_changed": false,
+  "dependencies_changed": false,
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.3",
+    "packages": {
+      "langgraph": "1.2.19",
+      "pydantic": "2.14.2",
+      "mcp": "2.3.0",
+      "pytest": "9.2.0",
+      "httpx2": "2.16.0",
+      "ruff": "0.17.3"
+    },
+    "postgres_image": "postgres:18.6-bookworm"
+  },
+  "docker": {
+    "review_database": "stopped",
+    "volume_retained": true,
+    "unrelated_containers_modified": false
+  },
+  "files_changed": [
+    "opspilot/agent/budgets.py",
+    "opspilot/agent/schemas.py",
+    "opspilot/agent/workflow.py",
+    "opspilot/agent/providers.py",
+    "opspilot/agent/conversation.py",
+    "scripts/replay_stage9e1.py",
+    "tests/test_stage9e1_budgets.py",
+    "tests/test_stage9b_pipeline.py",
+    "tests/test_groq_contracts.py",
+    "docs/STAGE_9E1_TOKEN_BUDGET_REPORT.md"
+  ],
+  "source_sha256": {
+    "opspilot/agent/budgets.py": "f2ded3d69b4f429ecee802cf81d49fa4f35df27cdedec2347ad2f3939de2f5de",
+    "opspilot/agent/schemas.py": "ad785c66647f392ad563eef55dc80a339051203aaf2567ff8b71526478019bfe",
+    "opspilot/agent/workflow.py": "6756ccd9fab583fec1557d52b7fe5f365519ac1696a99b3b3d4872d830ed1047",
+    "opspilot/agent/providers.py": "0667cc135ab67f9944cf3992d007929afd7d0a27d97191e45c6a0754efd6aa5f",
+    "opspilot/agent/conversation.py": "e4743c0e21ac5259ba5733e5679f2e91b481d3c0576320914dfcac582dad44b4",
+    "scripts/replay_stage9e1.py": "ba5b521a53550eff43731b49784871dd71123929ca73008a95c8ff0315ff530e",
+    "tests/test_stage9e1_budgets.py": "077521ac9b002a83fabe15a2aa1cfbcc0eac1d88cc83ec5215497088490c4c32",
+    "tests/test_stage9b_pipeline.py": "0c6b28bbd90814a7cca74c33c6c94774288b7be059d8996440bd2a3ad184a984",
+    "tests/test_groq_contracts.py": "03a06711534ab9964ab644834a02e7afb1bbc88fec734a2ddba28230d6328d8a",
+    "docs/STAGE_9E1_TOKEN_BUDGET_REPORT.md": "06662f3fdcfc4f8110de9a8ab39e99f0a0010f8b88caca744b5846ca39abaf4c"
+  },
+  "reports": {
+    "human": "docs/STAGE_9E1_TOKEN_BUDGET_REPORT.md",
+    "replay": "evaluations\\reports\\stage9e1\\20261119T053707Z-35d6b0\\replay.json",
+    "proposed_live_plan": "evaluations\\reports\\stage9e1\\20261119T053707Z-35d6b0\\live-plan.json",
+    "broad_postgres": "evaluations/reports/stage9-operations-20261119T052411Z-0ab6fa.json",
+    "exact_rerun": "evaluations/reports/stage9-operations-20261119T053355Z-7151c5.json"
+  },
+  "live_plan_authorized": false,
+  "live_plan_estimated_maximum_usd": 0.01596,
+  "live_plan_application_ceiling_usd": 0.05,
+  "commit_push_deployment": false,
+  "final_checks": {
+    "ruff": "passed",
+    "format_files": 9,
+    "hygiene_files": 306,
+    "hygiene_findings": 0,
+    "configured_secret_scan": "passed"
+  }
+}

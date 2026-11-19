@@ -1,0 +1,18 @@
+name: opspilot-stage7
+services:
+  review-db:
+    image: postgres:18.6-bookworm@sha256:5c4783a8cc3f0074912164f94dfa1be4e043438f0f707cf968d7af9a0d31a2c8
+    environment:
+      POSTGRES_USER: opspilot_test
+      POSTGRES_PASSWORD: ${STAGE7_POSTGRES_PASSWORD:?Generate the private Stage 7 environment}
+      POSTGRES_DB: opspilot_stage1_test
+    ports: ["127.0.0.1:${STAGE7_DB_PORT:-56437}:5432"]
+    volumes: ["stage7-data:/var/lib/postgresql"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opspilot_test -d opspilot_stage1_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  stage7-data:

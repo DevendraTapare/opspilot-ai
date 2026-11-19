@@ -1,0 +1,52 @@
+{
+  "version": "9e2-1",
+  "approval": "Required; not approved",
+  "investigations": 1,
+  "case": "op5-001",
+  "split": "calibration",
+  "model": "openai/gpt-oss-20b",
+  "limits": {
+    "max_model_calls": 11,
+    "max_tool_calls": 5,
+    "max_investigation_rounds": 4,
+    "max_seconds": 600,
+    "call_timeout_seconds": 30,
+    "max_prompt_estimated_tokens": 20000,
+    "max_estimated_tokens": 160000
+  },
+  "maximum_output_tokens_per_request": 1600,
+  "maximum_cumulative_output_tokens": 17600,
+  "reasoning_effort": "medium",
+  "minimum_request_spacing_seconds": 12,
+  "token_reset_guard_seconds": 1,
+  "original_requested_outer_usd": 0.05,
+  "local_reservation_ceiling_usd": 0.02,
+  "maximum_estimated_list_price_usd": 0.01596,
+  "prices_usd_per_million_input_output": [
+    0.075,
+    0.3
+  ],
+  "accounting": "Integer nanodollars; persist before dispatch; no refunds; missing usage retains full reservation",
+  "invoice_guarantee": false,
+  "billing_limit": "Byte-based admission estimate is not certified tokenizer/billing data; no account-wide or invoice guarantee",
+  "request_slots": "1 triage + up to 4*(planning + assessment) + 1 root cause + 1 remediation proposal",
+  "mcp_calls": "1 bootstrap incident read + up to 4 model-selected read-only diagnostics",
+  "stop_http": [
+    400,
+    413,
+    429
+  ],
+  "stop": "Any non-200 response, invalid/incomplete output/citations, transport error, quota/access denial, budget/deadline, ledger failure",
+  "automatic_retries": 0,
+  "preliminary_inference_probes": 0,
+  "remediation_execution": false,
+  "default_model_change": false,
+  "evidence_validation_change": false,
+  "benchmark_expansion": false,
+  "success": [
+    "Supported final diagnosis: existing gates, evidence review and private grader pass",
+    "Correct evidence-based abstention: explicit model abstain, no failure, no proposal, independent review confirms genuinely insufficient/contradictory evidence"
+  ],
+  "not_success": "Incomplete, budget exhaustion, transport/HTTP/schema/citation failure; safe abstention on sufficient answerable evidence is not successful diagnosis",
+  "outputs": "Plan, pre-dispatch ledger, validated decisions, final state/evidence, private grade, fixture/effect checks, review-required outcome"
+}

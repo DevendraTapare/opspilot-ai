@@ -1,0 +1,16 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
+	"files": { "includes": ["src/**", "tests/**", "*.ts", "!next-env.d.ts"] },
+	"formatter": { "enabled": false },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "none",
+			"security": {
+				"noDangerouslySetInnerHtml": "error",
+				"noGlobalEval": "error"
+			},
+			"suspicious": { "noDebugger": "error", "noDuplicateJsxProps": "error" }
+		}
+	}
+}

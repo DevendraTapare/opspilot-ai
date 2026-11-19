@@ -1,0 +1,89 @@
+{
+  "plan": {
+    "version": "9d-1",
+    "model": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "maximum_provider_requests": 19,
+    "maximum_output_tokens_per_call": 1600,
+    "maximum_request_bytes_with_reserve": 65000,
+    "maximum_reserved_usd": 0.15,
+    "worst_case_list_price_estimate_usd": 0.101745,
+    "price_per_million_input_output_usd": [
+      0.075,
+      0.3
+    ],
+    "phase_requests": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 2,
+      "E": 14
+    },
+    "automatic_retries": 0,
+    "request_interval_seconds": 12,
+    "call_timeout_seconds": 15,
+    "E_seconds": 180,
+    "E_max_read_tools": 8,
+    "reasoning_effort": "medium",
+    "temperature": 0.2,
+    "include_reasoning": false,
+    "calibration_case": "op5-001",
+    "held_out": false,
+    "early_stops": "401/403/429, reservation cap; E only if A-D all pass",
+    "actions": "disabled; no action grants, approvals or remediation calls",
+    "billing_caveat": "Application reservation ceiling, not a provider billing guarantee. Use account-side paid billing disabled/spend limit for a hard account cap. Missing usage retains full reservation; no model-list requests."
+  },
+  "mode": "real",
+  "probes": [
+    {
+      "probe": "A",
+      "passed": true,
+      "schema_valid": true,
+      "grounding": "not_a_full_diagnosis",
+      "failure_stage": null,
+      "messages_sha256": "c4ee087b791b6cf96e376fab303109db9d527755091d0fddd7d3d7d6e56240b8",
+      "schema_sha256": "61538608539553376776c4f0d3a4a9a876a4bd4c01def7ebaabe93fb71078494",
+      "latency_ms": 328.0
+    },
+    {
+      "probe": "B",
+      "passed": true,
+      "schema_valid": true,
+      "grounding": "not_a_full_diagnosis",
+      "failure_stage": null,
+      "messages_sha256": "26ebce617c58582d3d96e3745bb87f19f75a346e36da952c1bf7b742f4296913",
+      "schema_sha256": "378f26661efdedc02441aed49a682b386d29dc32f8a6d3b78d7b9c262f10802b",
+      "latency_ms": 12578.0
+    },
+    {
+      "probe": "C",
+      "passed": false,
+      "schema_valid": false,
+      "grounding": "not_assessed",
+      "failure_stage": "provider_schema_enforcement",
+      "messages_sha256": "06d057618dbc567376e4d1a89d7a599797b6c5562753be319847505224f6a32b",
+      "schema_sha256": "a947f4e34f68b2fdc19b4232f5be37aa6f1c11b858723ccc79e149b9225c2a90",
+      "error_code": "MODEL_HTTP_ERROR",
+      "latency_ms": 13796.0
+    },
+    {
+      "probe": "D",
+      "passed": false,
+      "schema_valid": false,
+      "grounding": "not_assessed",
+      "failure_stage": "provider_request_rejected",
+      "messages_sha256": "15c59a02c127ae8b3c65f274d9487d35d09b1febd83d12f18a171e6b50c8d0ae",
+      "schema_sha256": "1dccbdd50da6f646444ce477a9d1a0b9589d5d69a48c780e07207947076690f3",
+      "error_code": "MODEL_RATE_LIMITED",
+      "latency_ms": 9547.0,
+      "bound_tool_call_id": "fc_d5c7324a-9bd7-4805-a015-9ba07be79d74"
+    }
+  ],
+  "investigation": null,
+  "evidence_sha256": "48f3ec49a4b48d8f3f2f4d8b460fc1373ec46981b976a53cc2905712f68486b2",
+  "fixture_unchanged": true,
+  "action_execution_records": 0,
+  "provider_requests": 5,
+  "accounted_usd": 0.0044604,
+  "cost_complete": false
+}

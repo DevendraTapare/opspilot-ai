@@ -1,0 +1,60 @@
+{
+  "capture": "Actual Chromium, production Next build, isolated PostgreSQL/MCP",
+  "mode": "fixture",
+  "real_llm": false,
+  "human": "synthetic authenticated test operator",
+  "source_run": "artifacts/stage8/20261104T115404Z-browser-78c060",
+  "run_stats": {
+    "startTime": "2026-11-04T11:54:20.110Z",
+    "duration": 72203.701,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "scope": "Six passing actual browser tests. Earlier failed runs retained in Stage 8 report.",
+  "files": [
+    {
+      "file": "healthy.png",
+      "source_file": "healthy.png",
+      "bytes": 124068,
+      "sha256": "6edefe3c96f8d34e790652c883e710bf23127dd1f0945b058313729052869b0b"
+    },
+    {
+      "file": "investigation.png",
+      "source_file": "stage6-workspace.png",
+      "bytes": 235354,
+      "sha256": "0845a638cebe66765478b78847affd0ab5622d0c44b977a7ae4d45a5b409cf56"
+    },
+    {
+      "file": "approval.png",
+      "source_file": "approval.png",
+      "bytes": 163673,
+      "sha256": "f6231b6bb1f5c8e8396adf2789372b4da04c6dd9d05aa66316840cf573f888cc"
+    },
+    {
+      "file": "recovery.png",
+      "source_file": "stage6-verified.png",
+      "bytes": 337045,
+      "sha256": "07e831f7e27e5794cb9e706cb566f3ef322ddee3a35b9087fd6f1702e8202694"
+    },
+    {
+      "file": "evaluations.png",
+      "source_file": "evaluations.png",
+      "bytes": 206435,
+      "sha256": "cbb765ab63d1bdc7d789b5cb0d6d00f969776f52991ad2f8f7fd41bc907cde77"
+    },
+    {
+      "file": "architecture.png",
+      "source_file": "architecture.png",
+      "bytes": 185443,
+      "sha256": "5350c743d749a01b2469da587089a9b3938a957d92aef674b513c26c483b2fce"
+    },
+    {
+      "file": "mobile.png",
+      "source_file": "stage6-mobile.png",
+      "bytes": 34076,
+      "sha256": "fd6358dd3b44a4fbd5bd7e78a875da3715cf8f0f392bf49706e29938043c3560"
+    }
+  ]
+}

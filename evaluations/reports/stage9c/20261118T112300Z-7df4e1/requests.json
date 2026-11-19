@@ -1,0 +1,15 @@
+[
+  {
+    "number": 1,
+    "model": null,
+    "phase": "availability",
+    "http_status": 200,
+    "reserved_usd": 0.0,
+    "cost_complete": true,
+    "quota_headers": {},
+    "estimated_usd": 0,
+    "error_origin": "transport",
+    "error_type": "DecodingError",
+    "latency_ms": 453.0
+  }
+]

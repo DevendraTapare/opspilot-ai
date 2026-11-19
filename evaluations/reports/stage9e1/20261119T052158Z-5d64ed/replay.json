@@ -1,0 +1,662 @@
+{
+  "version": "9e1-offline-1",
+  "source_trace": "evaluations/reports/stage9e/20261119T045601Z-b7d83b",
+  "historical_source_unchanged": true,
+  "baseline_source_hashes": {
+    "conversation.py": "cdd5c626e1168004ae5f84e7923e8a8f2637834e917cc8d1d59a4125ef35706d",
+    "providers.py": "b0b890015e955a8689a4eff92fedabdd8b21590cf79ba2195dae08dab5a7982d",
+    "schemas.py": "78f723fe97c633d92a4447be0ba4bb71cd2160adbae7d04c24f5d6d4fc5ea3af",
+    "workflow.py": "5fdf0c8f7b50c06379b5edc4947852d50613342ca334dd45d1fbddc1ee53e39e"
+  },
+  "limitations": [
+    "Assessment bodies 1-4 unavailable; placeholders reproduce transitions only",
+    "No post-change real-provider tokens, latency or diagnosis accuracy measured",
+    "Already validated projected evidence restored; no new MCP protocol exercised by replay",
+    "UTF8 byte-equivalent estimates are admission accounting, not exact tokenization"
+  ],
+  "historical_requests": [
+    {
+      "number": 1,
+      "stage": "triage",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 4873,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 979,
+      "reported_output_tokens": 187,
+      "http_status": 200,
+      "provider_latency_ms": 703.0,
+      "decision": "triage",
+      "received_evidence_ids": [
+        "e001"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": false,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 2,
+      "stage": "investigation_planning",
+      "tool_selected": "get_service_metrics",
+      "estimated_input_byte_equivalents": 6751,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 1256,
+      "reported_output_tokens": 223,
+      "http_status": 200,
+      "provider_latency_ms": 563.0,
+      "decision": "select_diagnostic_tool",
+      "received_evidence_ids": [
+        "e001"
+      ],
+      "new_evidence_after_request": "e002",
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 3,
+      "stage": "evidence_assessment",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 9281,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 2185,
+      "reported_output_tokens": 661,
+      "http_status": 200,
+      "provider_latency_ms": 1219.0,
+      "decision": "investigate",
+      "received_evidence_ids": [
+        "e001",
+        "e002"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 4,
+      "stage": "investigation_planning",
+      "tool_selected": "search_service_logs",
+      "estimated_input_byte_equivalents": 11300,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 2511,
+      "reported_output_tokens": 218,
+      "http_status": 200,
+      "provider_latency_ms": 672.0,
+      "decision": "select_diagnostic_tool",
+      "received_evidence_ids": [
+        "e001",
+        "e002"
+      ],
+      "new_evidence_after_request": "e003",
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 5,
+      "stage": "evidence_assessment",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 14148,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 3865,
+      "reported_output_tokens": 426,
+      "http_status": 200,
+      "provider_latency_ms": 2421.0,
+      "decision": "investigate",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 6,
+      "stage": "investigation_planning",
+      "tool_selected": "get_dependency_status",
+      "estimated_input_byte_equivalents": 18725,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 5350,
+      "reported_output_tokens": 224,
+      "http_status": 200,
+      "provider_latency_ms": 828.0,
+      "decision": "select_diagnostic_tool",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003"
+      ],
+      "new_evidence_after_request": "e004",
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 7,
+      "stage": "evidence_assessment",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 15707,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 4377,
+      "reported_output_tokens": 632,
+      "http_status": 200,
+      "provider_latency_ms": 1344.0,
+      "decision": "investigate",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 8,
+      "stage": "investigation_planning",
+      "tool_selected": "list_recent_deployments",
+      "estimated_input_byte_equivalents": 22648,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 6481,
+      "reported_output_tokens": 238,
+      "http_status": 200,
+      "provider_latency_ms": 1109.0,
+      "decision": "select_diagnostic_tool",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004"
+      ],
+      "new_evidence_after_request": "e005",
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 9,
+      "stage": "evidence_assessment",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 16525,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 4605,
+      "reported_output_tokens": 973,
+      "http_status": 200,
+      "provider_latency_ms": 4110.0,
+      "decision": "investigate",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004",
+        "e005"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 10,
+      "stage": "investigation_planning",
+      "tool_selected": "get_service_health",
+      "estimated_input_byte_equivalents": 24314,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 6894,
+      "reported_output_tokens": 440,
+      "http_status": 200,
+      "provider_latency_ms": 1516.0,
+      "decision": "select_diagnostic_tool",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004",
+        "e005"
+      ],
+      "new_evidence_after_request": "e006",
+      "existing_evidence_repeated": true,
+      "semantic_repetition": "same metric sample as e002",
+      "stopping_assessment": "Abstention available. Finalization eligibility unknown: earlier hypothesis bodies missing."
+    },
+    {
+      "number": 11,
+      "stage": "evidence_assessment",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 17503,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": 4939,
+      "reported_output_tokens": 955,
+      "http_status": 200,
+      "provider_latency_ms": 2437.0,
+      "decision": "investigate",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004",
+        "e005",
+        "e006"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available; saved hypotheses cite only e002, insufficient for final corroboration."
+    },
+    {
+      "number": 12,
+      "stage": "investigation_planning",
+      "tool_selected": null,
+      "estimated_input_byte_equivalents": 26813,
+      "estimated_input_tokens": null,
+      "estimate_note": "No historical tokenizer estimate retained; byte-cost reserve is not usage",
+      "reported_input_tokens": null,
+      "reported_output_tokens": null,
+      "http_status": 413,
+      "provider_latency_ms": 79.0,
+      "decision": "none: provider rejection",
+      "received_evidence_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004",
+        "e005",
+        "e006"
+      ],
+      "new_evidence_after_request": null,
+      "existing_evidence_repeated": true,
+      "semantic_repetition": null,
+      "stopping_assessment": "Abstention available; saved hypotheses cite only e002, insufficient for final corroboration."
+    }
+  ],
+  "before": {
+    "mode": "offline_recorded_control_flow",
+    "model_requests": 12,
+    "tool_reads_restored": 6,
+    "actual_mcp_calls": 0,
+    "actual_provider_requests": 0,
+    "estimated_input_tokens": 182756,
+    "serialized_prompt_bytes": 174679,
+    "duplicate_tool_calls": 0,
+    "evidence_hashes": {
+      "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+      "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+      "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+      "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+      "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef",
+      "e006": "a96a89383c0baeaf0ef01cdb40f5bb05a1984f803da52b4f16b05ada696fb71b"
+    },
+    "run_status": "failed",
+    "errors": [
+      {
+        "node": "investigation_planning",
+        "code": "MODEL_HTTP_ERROR",
+        "message": "Model decision failed; no fixture substitution was made."
+      }
+    ],
+    "finalized": false,
+    "remediation": false,
+    "explicit_incomplete": false,
+    "explicit_model_abstention": false,
+    "validation_failures": 0,
+    "requests": [
+      {
+        "number": 1,
+        "stage": "triage",
+        "serialized_utf8_bytes": 4299,
+        "estimated_input_tokens": 4873,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94"
+        },
+        "schema_hash": "4adbe4a518c87096e49a8726ff648074b3ba315434dea999692a10fa9471f9c2",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 2,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 6123,
+        "estimated_input_tokens": 6751,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 3,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 8604,
+        "estimated_input_tokens": 9281,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50"
+        },
+        "schema_hash": "651e64e25c97bf068930f00336388482e38e6f31bd91525d414c72a2857a3cf2",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 4,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 10044,
+        "estimated_input_tokens": 10694,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 5,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 12863,
+        "estimated_input_tokens": 13542,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e"
+        },
+        "schema_hash": "2192fc6aa70d102025d5ff0f561d7234c69b0ec946e6ac895d73089e6f5cf41b",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 6,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 17451,
+        "estimated_input_tokens": 18123,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 7,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 14424,
+        "estimated_input_tokens": 15105,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53"
+        },
+        "schema_hash": "73b858a1b7ee747acc25ab3ebe38514ec3a02efe3f2049999eb9a229bb42164d",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 8,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 21100,
+        "estimated_input_tokens": 21794,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 9,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 14988,
+        "estimated_input_tokens": 15671,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+          "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef"
+        },
+        "schema_hash": "9316c4e09a444513a5ead8a44dc1a4f1a485ea13b79a1099bd7112a6a02b9448",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 10,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 22744,
+        "estimated_input_tokens": 23460,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+          "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 11,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 15964,
+        "estimated_input_tokens": 16649,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+          "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef",
+          "e006": "a96a89383c0baeaf0ef01cdb40f5bb05a1984f803da52b4f16b05ada696fb71b"
+        },
+        "schema_hash": "8e48e9db93cd76ae42d7a012877adb9bfc57ba71f0f8180153a6da4d46ec9a40",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 12,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 26075,
+        "estimated_input_tokens": 26813,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+          "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef",
+          "e006": "a96a89383c0baeaf0ef01cdb40f5bb05a1984f803da52b4f16b05ada696fb71b"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      }
+    ]
+  },
+  "after": {
+    "mode": "offline_recorded_control_flow",
+    "model_requests": 9,
+    "tool_reads_restored": 5,
+    "actual_mcp_calls": 0,
+    "actual_provider_requests": 0,
+    "estimated_input_tokens": 96217,
+    "serialized_prompt_bytes": 90279,
+    "duplicate_tool_calls": 0,
+    "evidence_hashes": {
+      "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+      "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+      "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+      "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+      "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef"
+    },
+    "run_status": "budget_exhausted",
+    "errors": [
+      {
+        "node": "additional_investigation",
+        "code": "INVESTIGATION_ROUND_LIMIT",
+        "message": "Investigation budget was exhausted."
+      }
+    ],
+    "finalized": false,
+    "remediation": false,
+    "explicit_incomplete": true,
+    "explicit_model_abstention": false,
+    "validation_failures": 0,
+    "requests": [
+      {
+        "number": 1,
+        "stage": "triage",
+        "serialized_utf8_bytes": 4433,
+        "estimated_input_tokens": 5007,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94"
+        },
+        "schema_hash": "4adbe4a518c87096e49a8726ff648074b3ba315434dea999692a10fa9471f9c2",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 2,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 5635,
+        "estimated_input_tokens": 6263,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 3,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 7350,
+        "estimated_input_tokens": 8027,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50"
+        },
+        "schema_hash": "651e64e25c97bf068930f00336388482e38e6f31bd91525d414c72a2857a3cf2",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 4,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 8192,
+        "estimated_input_tokens": 8842,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 5,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 11278,
+        "estimated_input_tokens": 11957,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e"
+        },
+        "schema_hash": "2192fc6aa70d102025d5ff0f561d7234c69b0ec946e6ac895d73089e6f5cf41b",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 6,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 12423,
+        "estimated_input_tokens": 13095,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 7,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 12819,
+        "estimated_input_tokens": 13500,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53"
+        },
+        "schema_hash": "73b858a1b7ee747acc25ab3ebe38514ec3a02efe3f2049999eb9a229bb42164d",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 8,
+        "stage": "investigation_planning",
+        "serialized_utf8_bytes": 14784,
+        "estimated_input_tokens": 15478,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53"
+        },
+        "schema_hash": "33a0a4c8dba81a8bd8cc60ea8e21c686ccad564cb01b5bdc67a55cf9176a2bb9",
+        "actual_provider_tokens": null
+      },
+      {
+        "number": 9,
+        "stage": "evidence_assessment",
+        "serialized_utf8_bytes": 13365,
+        "estimated_input_tokens": 14048,
+        "estimate_kind": "UTF8 byte-equivalents plus 512, not tokenizer usage",
+        "evidence_hashes": {
+          "e001": "95f8c10261683c335e498071623b56d9591cfa64b0ca8f024b7b28d1bc6fdc94",
+          "e002": "59d2bac242a409aedc8c5a4fb21ede2a321e6de2918a2c64cb0f2345057e5c50",
+          "e003": "67ae7c5b96350670aae14f6cbd6d75847f04d88e0a882477b0edaeee4ca8591e",
+          "e004": "47a114dbacc3f631661d7096b8be8a819a4932ede51061a3b025ee7dfa1e9f53",
+          "e005": "e42cee0d69381136ce460a0e34c1c80f9e768a16305c3a45e3385a4072bfafef"
+        },
+        "schema_hash": "9316c4e09a444513a5ead8a44dc1a4f1a485ea13b79a1099bd7112a6a02b9448",
+        "actual_provider_tokens": null
+      }
+    ]
+  },
+  "matched_prefix": {
+    "requests": 9,
+    "before_bytes": 109896,
+    "after_bytes": 90279,
+    "evidence_identical": true
+  },
+  "historical_evidence_retained": true,
+  "default_model_changed": false,
+  "provider_requests": 0,
+  "spend_usd": 0
+}

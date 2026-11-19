@@ -1,0 +1,133 @@
+{
+  "review_date": "2026-11-19",
+  "mode": "offline_mock_and_local_infrastructure",
+  "verdict": "BLOCKED",
+  "provider_inference_requests": 0,
+  "provider_inference_tokens": 0,
+  "provider_inference_cost_usd": 0,
+  "provider_root_cause": "unresolved; historical HTTP400 json_validate_failed before local validation",
+  "local_correction": "reject omitted wire-required fields, numeric strings and numeric boolean literals; sanitized diagnostics",
+  "files_changed": [
+    "opspilot/agent/providers.py",
+    "opspilot/agent/diagnostics.py",
+    "scripts/diagnose_stage9d.py",
+    "tests/test_stage9d_diagnosis.py",
+    "docs/STAGE_9D_STRICT_DIAGNOSIS_REPORT.md"
+  ],
+  "source_sha256": {
+    "opspilot/agent/providers.py": "36fa9c06d9fccc7bc955e82b5e033a7d17fe64906051d289896a4306ae99573e",
+    "opspilot/agent/diagnostics.py": "40b4715aaafcea234bb61a487fc74026c71440846e315d4bb81d4e496579a2f3",
+    "scripts/diagnose_stage9d.py": "39d0a1044979c35a13a2f17e09a714556eca9636a38bd96e8928cdd0cae72ec2",
+    "tests/test_stage9d_diagnosis.py": "24d63bbdbd0deedb083a5d1eefec7accce0ef46c6c97324c025a4b14ec0f9936",
+    "docs/STAGE_9D_STRICT_DIAGNOSIS_REPORT.md": "a2ab950257f5a1027e1f68e94a646fed49749ec81f5c6d91865ccf1de326e80a"
+  },
+  "xml_results": [
+    {
+      "path": "artifacts/stage9d/baseline.xml",
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "seconds": 11.422
+    },
+    {
+      "path": "artifacts/stage9d/wire-contract-before.xml",
+      "tests": 3,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 3.281
+    },
+    {
+      "path": "artifacts/stage9d/boolean-before.xml",
+      "tests": 2,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.0
+    },
+    {
+      "path": "artifacts/stage9d/offline-after.xml",
+      "tests": 89,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "seconds": 12.644
+    },
+    {
+      "path": "artifacts/stage9d/final-parser.xml",
+      "tests": 88,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 39.652
+    },
+    {
+      "path": "artifacts/stage9d/diagnosis-final.xml",
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 27.981
+    },
+    {
+      "path": "artifacts/stage9d/final-review.xml",
+      "tests": 89,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 31.816
+    }
+  ],
+  "integration_reports": [
+    "evaluations/reports/stage9-operations-20261118T125707Z-9a0008.json",
+    "evaluations/reports/stage9-operations-20261118T130555Z-8ee063.json",
+    "evaluations/reports/stage9-operations-20261119T040405Z-458000.json"
+  ],
+  "unresolved_offline_case": "test_agent_refuses_operator_credential[postgres]: migration-setup connection timeout",
+  "historical_files_checked": 74,
+  "historical_files_changed": [],
+  "five_incident_benchmark_allowed": false,
+  "live_budget_approval": "not_received",
+  "live_plan": {
+    "version": "9d-1",
+    "model": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "maximum_provider_requests": 19,
+    "maximum_output_tokens_per_call": 1600,
+    "maximum_request_bytes_with_reserve": 65000,
+    "maximum_reserved_usd": 0.15,
+    "worst_case_list_price_estimate_usd": 0.101745,
+    "price_per_million_input_output_usd": [
+      0.075,
+      0.3
+    ],
+    "phase_requests": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 2,
+      "E": 14
+    },
+    "automatic_retries": 0,
+    "request_interval_seconds": 12,
+    "call_timeout_seconds": 15,
+    "E_seconds": 180,
+    "E_max_read_tools": 8,
+    "reasoning_effort": "medium",
+    "temperature": 0.2,
+    "include_reasoning": false,
+    "calibration_case": "op5-001",
+    "held_out": false,
+    "early_stops": "401/403/429, reservation cap; E only if A-D all pass",
+    "actions": "disabled; no action grants, approvals or remediation calls",
+    "billing_caveat": "Application reservation ceiling, not a provider billing guarantee. Use account-side paid billing disabled/spend limit for a hard account cap. Missing usage retains full reservation; no model-list requests."
+  },
+  "live_execution_preconditions": [
+    "explicit approval of this plan",
+    "unchanged failed PostgreSQL setup case passes"
+  ],
+  "source_lint": "passed",
+  "changed_python_format": "passed",
+  "real_model_accuracy": null
+}

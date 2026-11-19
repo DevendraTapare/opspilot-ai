@@ -1,0 +1,134 @@
+name: opspilot-stage1
+
+x-app: &app
+  image: opspilot-stage1:local
+  build:
+    context: .
+    target: runtime
+  environment: &app-env
+    OPSPILOT_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-opspilot}:${POSTGRES_PASSWORD:?Run scripts/Initialize-Local.ps1 first}@db:5432/${POSTGRES_DB:-opspilot}
+    OPSPILOT_CONTROL_TOKEN: ${OPSPILOT_CONTROL_TOKEN:?Run scripts/Initialize-Local.ps1 first}
+    OPSPILOT_LOG_LEVEL: ${OPSPILOT_LOG_LEVEL:-INFO}
+  security_opt: ["no-new-privileges:true"]
+  cap_drop: ["ALL"]
+  read_only: true
+  tmpfs: ["/tmp"]
+  networks: [simulator]
+
+services:
+  authorizer:
+    <<: *app
+    profiles: ["mcp"]
+    command: ["uvicorn", "opspilot.gateway.authorizer:create_authorizer", "--factory", "--host", "0.0.0.0", "--port", "8000", "--no-access-log", "--log-config", "/app/opspilot/uvicorn-logging.json"]
+    environment:
+      OPSPILOT_GATEWAY_DATABASE_URL: postgresql+psycopg://opspilot_gateway:${OPSPILOT_GATEWAY_DB_PASSWORD:-}@db:5432/${POSTGRES_DB:-opspilot}
+      OPSPILOT_GATEWAY_CALLERS: ${OPSPILOT_GATEWAY_CALLERS:-}
+      OPSPILOT_GATEWAY_DELEGATION_KEY: ${OPSPILOT_GATEWAY_DELEGATION_KEY:-}
+      OPSPILOT_GATEWAY_APPROVAL_KEY: ${OPSPILOT_GATEWAY_APPROVAL_KEY:-}
+      OPSPILOT_GATEWAY_ACTIONS_ENABLED: ${OPSPILOT_GATEWAY_ACTIONS_ENABLED:-false}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 15
+
+  mcp:
+    <<: *app
+    profiles: ["mcp"]
+    command: ["uvicorn", "opspilot.gateway.mcp_server:create_mcp_app", "--factory", "--host", "0.0.0.0", "--port", "8000", "--no-access-log", "--log-config", "/app/opspilot/uvicorn-logging.json"]
+    environment:
+      OPSPILOT_GATEWAY_CALLERS: ${OPSPILOT_GATEWAY_CALLERS:-}
+      OPSPILOT_GATEWAY_DELEGATION_KEY: ${OPSPILOT_GATEWAY_DELEGATION_KEY:-}
+      OPSPILOT_GATEWAY_BACKEND_URL: http://authorizer:8000
+    ports: ["127.0.0.1:8085:8000"]
+    depends_on:
+      authorizer: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=4)"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  db:
+    image: postgres:18.6-bookworm@sha256:5c4783a8cc3f0074912164f94dfa1be4e043438f0f707cf968d7af9a0d31a2c8
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-opspilot}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/Initialize-Local.ps1 first}
+      POSTGRES_DB: ${POSTGRES_DB:-opspilot}
+    ports: ["127.0.0.1:${OPSPILOT_DB_PORT:-55432}:5432"]
+    volumes: ["opspilot-data:/var/lib/postgresql"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    networks: [simulator]
+
+  migrate:
+    <<: *app
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db: {condition: service_healthy}
+
+  api:
+    <<: *app
+    ports: ["127.0.0.1:${OPSPILOT_API_PORT:-8084}:8000"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 15
+
+  traffic:
+    <<: *app
+    profiles: ["traffic"]
+    command: ["python", "-m", "opspilot.worker"]
+    stop_grace_period: 20s
+    environment:
+      <<: *app-env
+      OPSPILOT_API_URL: http://api:8000
+    depends_on:
+      api: {condition: service_healthy}
+
+  test-db:
+    image: postgres:18.6-bookworm@sha256:5c4783a8cc3f0074912164f94dfa1be4e043438f0f707cf968d7af9a0d31a2c8
+    profiles: ["test"]
+    ports: ["127.0.0.1:${OPSPILOT_TEST_DB_PORT:-55433}:5432"]
+    environment:
+      POSTGRES_USER: opspilot_test
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/Initialize-Local.ps1 first}
+      POSTGRES_DB: opspilot_stage1_test
+    tmpfs: ["/var/lib/postgresql"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opspilot_test -d opspilot_stage1_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    networks: [simulator]
+
+  tests:
+    profiles: ["test"]
+    build:
+      context: .
+      target: test
+    command: ["pytest", "-q", "--junitxml=/artifacts/docker-tests.xml"]
+    volumes: ["./artifacts:/artifacts"]
+    environment:
+      OPSPILOT_TEST_DATABASE_URL: postgresql+psycopg://opspilot_test:${POSTGRES_PASSWORD:?Run scripts/Initialize-Local.ps1 first}@test-db:5432/opspilot_stage1_test
+      OPSPILOT_CONTROL_TOKEN: ${OPSPILOT_CONTROL_TOKEN:?Run scripts/Initialize-Local.ps1 first}
+      OPSPILOT_LIVE_API_URL: http://api:8000
+    depends_on:
+      test-db: {condition: service_healthy}
+      api: {condition: service_healthy}
+    networks: [simulator]
+
+volumes:
+  opspilot-data:
+
+networks:
+  simulator:
+    driver: bridge

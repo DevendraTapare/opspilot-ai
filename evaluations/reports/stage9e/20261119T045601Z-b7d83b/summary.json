@@ -1,0 +1,121 @@
+{
+  "review_date": "2026-11-19",
+  "verdict": "BLOCKED",
+  "approval": "One bounded investigation approved explicitly; authorization consumed",
+  "live_attempts": 1,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "requests": 12,
+  "http_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    413
+  ],
+  "strict_decisions_accepted": 6,
+  "strict_decisions_attempted": 6,
+  "strict_compound_diagnosis_probe_repeated": false,
+  "mcp_calls": 6,
+  "tools": [
+    "get_incident",
+    "get_service_metrics",
+    "search_service_logs",
+    "get_dependency_status",
+    "list_recent_deployments",
+    "get_service_health"
+  ],
+  "run_status": "failed",
+  "task_completions": 0,
+  "attempted_cases": 1,
+  "accepted_diagnoses": 0,
+  "diagnosis_only_accuracy": null,
+  "latency_ms": 394219.0,
+  "known_input_tokens": 43442,
+  "known_output_tokens": 5177,
+  "known_reasoning_tokens": 3342,
+  "known_list_price_estimate_usd": 0.0048112499999999996,
+  "conservative_accounted_usd": 0.007302225000000001,
+  "cost_complete": false,
+  "failure": {
+    "stage": "investigation:investigation_planning",
+    "http_status": 413,
+    "code": "rate_limit_exceeded",
+    "type": "tokens",
+    "request_id": "req_01m7s2z4xte84s2grx6jrp8bq3",
+    "scope": "Token admission; single-request TPM size strongly indicated, exact requested count unavailable"
+  },
+  "no_retries": true,
+  "fixture_unchanged": true,
+  "action_execution_records": 0,
+  "final_root_cause": null,
+  "final_remediation": null,
+  "final_grounding_exercised_live": false,
+  "historical_http400_cause": "Unresolved; historical compound schema probe was not repeated",
+  "stage9f_allowed": false,
+  "regression": {
+    "unit": {
+      "passed": 162,
+      "skipped": 2,
+      "deselected_real_model": 1
+    },
+    "broad_postgres": {
+      "passed": 174,
+      "skipped": 11,
+      "failures": 2
+    },
+    "focused_rerun": {
+      "passed": 39,
+      "skipped": 1,
+      "failures": 1
+    },
+    "stale_approval_exact_rerun": {
+      "passed": 1
+    },
+    "completed_source_focused_postgres": {
+      "passed": 42,
+      "skipped": 1,
+      "failures": 0
+    }
+  },
+  "regression_caveat": "Earlier MCP transport/timeout failures remain preserved; final passes do not prove timing cause fixed",
+  "protected_files_checked": 93,
+  "protected_changed": [],
+  "implementation_changed_since_offline_regressions": [],
+  "default_model_changed": false,
+  "docker": {
+    "review_db": "stopped",
+    "volume_retained": true
+  },
+  "report": "docs/STAGE_9E_PROVIDER_COMPATIBILITY_REPORT.md",
+  "remaining_limits": [
+    "HTTP413 token admission and growing planning context",
+    "Historical HTTP400 exact cause",
+    "No accepted live root cause or remediation",
+    "Earlier MCP transport timeouts",
+    "413 unit classification and millisecond reset parsing incomplete"
+  ],
+  "source_sha256": {
+    "opspilot/agent/providers.py": "b0b890015e955a8689a4eff92fedabdd8b21590cf79ba2195dae08dab5a7982d",
+    "opspilot/agent/provider_policy.py": "7ca9a69f1694e75a6f11fd9047f255aea16bcf0ff21be2e877a132b11a78c190",
+    "opspilot/agent/diagnostics.py": "6486146bd25e49e20902590c70682f80ab213afd897a07998110df7247ac1402",
+    "scripts/verify_stage9e.py": "31d287b24fcbe4fa05548d41803fa8a73e31b52a7387e5cc413762e2095e032a",
+    "tests/test_stage9e_compatibility.py": "b5028053ebb09228f985ad65860c6771d66c6c45d8e025b521163b3e36ea7293",
+    "docs/STAGE_9E_PROVIDER_COMPATIBILITY_REPORT.md": "f105952cb8237603ee812b652ec3455df0c07b80fbf5d89a531d32de84d86c33"
+  },
+  "post_live_checks": {
+    "ruff": "passed",
+    "format_files": 5,
+    "candidate_hygiene_files": 294,
+    "candidate_hygiene_findings": 0,
+    "configured_secret_scan_files": 8,
+    "configured_secret_hit_files": []
+  }
+}

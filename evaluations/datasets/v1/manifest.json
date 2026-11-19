@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "cases": 120,
+  "families": 20,
+  "splits": {
+    "calibration": 20,
+    "development": 60,
+    "held_out": 40
+  },
+  "files_sha256": {
+    "calibration.jsonl": "c8b2a73cc670732153f3a51793193b2316d3132db330e8f6c4abdd894076b43e",
+    "development.jsonl": "378083356445cae1f98ba387b11b257e20a08d021f0e01eb423505b2b698ead5",
+    "held_out.jsonl": "01a47610321454282bb7294812c4e15e85b943dc3ac130b8b54ae7ed8495d6da"
+  },
+  "variation": "Workload count/spacing, target/fault combinations, history and visibility; not seed-only duplication"
+}

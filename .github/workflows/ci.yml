@@ -1,0 +1,95 @@
+name: Reproducible checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  UV_CACHE_DIR: ${{ github.workspace }}/.uv-cache
+  NEXT_TELEMETRY_DISABLED: '1'
+  LANGSMITH_TRACING: 'false'
+jobs:
+  dependencies-and-hygiene:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - run: python -m pip install uv==0.11.23
+      - run: uv sync --locked
+      - run: uv run --no-sync ruff check .
+      - run: uv run --no-sync ruff format --check .
+      - run: uv run --no-sync python -m scripts.release_hygiene --output artifacts/stage8/ci-hygiene.json
+      - run: uv export --locked --quiet --no-emit-project --format requirements-txt --output-file artifacts/audit-requirements.txt
+      - run: uv tool run pip-audit==2.10.1 --no-deps --disable-pip -r artifacts/audit-requirements.txt --format json --output artifacts/stage8/ci-python-audit.json
+      - run: npm ci --ignore-scripts
+        working-directory: frontend
+      - run: npm audit --audit-level=low
+        working-directory: frontend
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always()
+        with:
+          name: public-check-summaries
+          path: |
+            artifacts/stage8/ci-hygiene.json
+            artifacts/stage8/ci-python-audit.json
+          retention-days: 7
+  postgres-mcp-security:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - run: python -m pip install uv==0.11.23
+      - run: uv sync --locked
+      - run: npm ci --ignore-scripts && npm run lint && npm run typecheck && npm run build
+        working-directory: frontend
+      - run: uv run --no-sync python -m scripts.initialize_stage7
+      - run: docker compose --env-file .stage7.env -f compose.stage7.yaml up -d --wait review-db
+      - run: uv run --no-sync python -m scripts.review_stage7
+      - if: ${{ !cancelled() }}
+        run: uv run --no-sync python -m scripts.docker_release_smoke
+      - if: always()
+        run: docker compose --env-file .stage7.env -f compose.stage7.yaml stop review-db
+  chromium-lifecycle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - run: python -m pip install uv==0.11.23
+      - run: uv sync --locked
+      - run: npm ci --ignore-scripts && npm run build && npx playwright install --with-deps chromium
+        working-directory: frontend
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/frontend/.cache/ms-playwright
+      - run: uv run --no-sync python -m scripts.initialize_stage7
+      - run: docker compose --env-file .stage7.env -f compose.stage7.yaml up -d --wait review-db
+      - run: uv run --no-sync python -m scripts.verify_release_browser
+      - if: always()
+        run: docker compose --env-file .stage7.env -f compose.stage7.yaml stop review-db

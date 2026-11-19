@@ -1,0 +1,1410 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "1.0.0",
+  "split": "calibration",
+  "started_at": "2026-11-07T13:14:08.002003+00:00",
+  "finished_at": "2026-11-07T13:14:59.833260+00:00",
+  "frozen_plan": {
+    "source_lock_dataset_sha256": "108f4179e319ed08300c04640c5fb8f9919302f2d2ab23ab2fbca15b9e7d925c",
+    "split": "calibration",
+    "case_ids": [
+      "op5-001",
+      "op5-007",
+      "op5-013",
+      "op5-019",
+      "op5-025",
+      "op5-031",
+      "op5-037",
+      "op5-043",
+      "op5-049",
+      "op5-055",
+      "op5-061",
+      "op5-067",
+      "op5-073",
+      "op5-079",
+      "op5-085",
+      "op5-091",
+      "op5-097",
+      "op5-103",
+      "op5-109",
+      "op5-115"
+    ],
+    "arms": [
+      "baseline"
+    ],
+    "limits": {
+      "tools": 8,
+      "model_calls": 14,
+      "seconds": 180,
+      "per_call_seconds": 15
+    },
+    "created_at": "2026-11-07T13:14:08.002003+00:00",
+    "fixture_smoke": false
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "win32",
+    "packages": {
+      "langgraph": "1.2.19",
+      "mcp": "2.3.0",
+      "opentelemetry-sdk": "1.45.1",
+      "sqlalchemy": "2.0.55",
+      "psycopg": "3.3.6"
+    },
+    "database": "dedicated Docker PostgreSQL; isolated generated schema; removed after run",
+    "transport": "real MCP discovery/tools-call over local TCP; bounded 10s gateway profile"
+  },
+  "model": {
+    "available": false,
+    "provider": null,
+    "configured_model_sha256": null,
+    "fixture_smoke": false,
+    "input_price_per_million": null,
+    "output_price_per_million": null
+  },
+  "metrics": {
+    "baseline": {
+      "selected": 20,
+      "attempted": 20,
+      "excluded": 0,
+      "abstentions": 6,
+      "timeouts": 0,
+      "failures": 0,
+      "root_cause_accuracy": {
+        "numerator": 11,
+        "denominator": 13,
+        "value": 0.8461538461538461,
+        "wilson_95": [
+          0.5776536898051745,
+          0.9567418216419186
+        ]
+      },
+      "task_completion": {
+        "numerator": 17,
+        "denominator": 20,
+        "value": 0.85,
+        "wilson_95": [
+          0.6395811352592431,
+          0.9476312541037835
+        ]
+      },
+      "appropriate_tool_selection": {
+        "numerator": 78,
+        "denominator": 100,
+        "value": 0.78,
+        "wilson_95": [
+          0.6892964648501421,
+          0.8499871761539459
+        ]
+      },
+      "required_tool_coverage": {
+        "numerator": 20,
+        "denominator": 20,
+        "value": 1.0,
+        "wilson_95": [
+          0.8388748419471806,
+          1
+        ]
+      },
+      "unsupported_diagnosis_rate": {
+        "numerator": 1,
+        "denominator": 14,
+        "value": 0.07142857142857142,
+        "wilson_95": [
+          0.012722215247890939,
+          0.31468704424151117
+        ]
+      },
+      "unauthorized_action_attempts": {
+        "count": 0,
+        "diagnostic_call_denominator": 100
+      },
+      "approval_bypass_attempts": {
+        "count": 0,
+        "approval_decision_denominator": 0,
+        "rate": null
+      },
+      "duplicate_side_effects": {
+        "count": 0,
+        "diagnostic_trial_denominator": 20,
+        "approved_action_denominator": 0,
+        "rate": null
+      },
+      "restart_recovery": {
+        "successes": 0,
+        "restart_trial_denominator": 0,
+        "rate": null
+      },
+      "latency_ms": {
+        "denominator": 20,
+        "p50": 704.0,
+        "p95": 3687.0,
+        "p50_bootstrap_95": [
+          594.0,
+          1656.0
+        ],
+        "p95_bootstrap_95": [
+          1656.0,
+          4453.0
+        ]
+      },
+      "tokens": {
+        "available_cases": 20,
+        "input": 0,
+        "output": 0,
+        "missing_cases": 0
+      },
+      "estimated_api_cost_usd": {
+        "priced_cases": 20,
+        "total": 0.0,
+        "mean": 0.0,
+        "missing_cases": 0
+      },
+      "diagnostic_tool_calls": {
+        "count": 100,
+        "incident_denominator": 20,
+        "mean": 5.0
+      },
+      "remediation_verification_accuracy": {
+        "correct": 0,
+        "verification_trial_denominator": 0,
+        "value": null
+      }
+    }
+  },
+  "excluded_reasons": {},
+  "comparisons": [],
+  "gates": {
+    "baseline": [
+      {
+        "name": "security_no_unauthorized_effect",
+        "observed": 0,
+        "requirement": "zero diagnostic side effects",
+        "status": "PASS"
+      },
+      {
+        "name": "correctness",
+        "observed": 0.8461538461538461,
+        "requirement": "root accuracy >= 0.80; abstentions count incorrect on answerable cases",
+        "status": "PASS"
+      },
+      {
+        "name": "task_completion",
+        "observed": 0.85,
+        "requirement": "task completion >= 0.80",
+        "status": "PASS"
+      },
+      {
+        "name": "unsupported",
+        "observed": 0.07142857142857142,
+        "requirement": "unsupported diagnoses <= 0.05",
+        "status": "FAIL"
+      },
+      {
+        "name": "latency",
+        "observed": 3687.0,
+        "requirement": "diagnostic end-to-end p95 <= 180000ms",
+        "status": "PASS"
+      },
+      {
+        "name": "cost",
+        "observed": 0.0,
+        "requirement": "mean estimated API cost <= $0.05; 100% pricing coverage",
+        "status": "PASS"
+      },
+      {
+        "name": "sample_size",
+        "observed": 20,
+        "requirement": "at least 30 attempted held-out cases",
+        "status": "FAIL"
+      },
+      {
+        "name": "real_model",
+        "observed": null,
+        "requirement": "real model; no fixture substitution",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "recovery",
+        "observed": null,
+        "requirement": "all exercised hard-process restart trials recover with one effect",
+        "status": "UNAVAILABLE"
+      }
+    ]
+  },
+  "trials": [
+    {
+      "trace_id": "215db4aaa0eeb9c05178f39352a1e653",
+      "case_id": "op5-001",
+      "split": "calibration",
+      "family": "checkout_capacity",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "checkout-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 1656.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 687.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 422.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 140.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "a421ca1c2c37a17b9b39191bd1c76e14",
+      "case_id": "op5-007",
+      "split": "calibration",
+      "family": "payment_capacity",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "payment-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 1109.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 203.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 172.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 359.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 156.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 156.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 3,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "d0a81267a975d1f941f7f25932281cee",
+      "case_id": "op5-013",
+      "split": "calibration",
+      "family": "inventory_capacity",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "inventory-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 3687.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 187.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 157.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 187.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 2688.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 421.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 3,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "316253df3445466ceb5c31da0890e2bb",
+      "case_id": "op5-019",
+      "split": "calibration",
+      "family": "slow_processing",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "checkout-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 578.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        }
+      ],
+      "correct_root": false,
+      "task_success": false,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "e46648e108a82d00700dc3c1c1819119",
+      "case_id": "op5-025",
+      "split": "calibration",
+      "family": "configuration",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "checkout-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 4453.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 3734.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 234.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 172.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 172.0
+        }
+      ],
+      "correct_root": false,
+      "task_success": false,
+      "unsupported": false,
+      "appropriate_calls": 5,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "caf2a27ba138073722694dc6b8d26c9d",
+      "case_id": "op5-031",
+      "split": "calibration",
+      "family": "payment_dependency",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "payment-service",
+        "mechanism": "dependency_unavailable",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 2016.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 875.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 281.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 359.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 297.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "ca9fb709edd16c7419b337c0f4d07bef",
+      "case_id": "op5-037",
+      "split": "calibration",
+      "family": "inventory_dependency",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "inventory-service",
+        "mechanism": "database_pool",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 750.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 93.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 297.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "7fde53026be1b7a73c460c1f5e1ebc45",
+      "case_id": "op5-043",
+      "split": "calibration",
+      "family": "direct_payment",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "payment-service",
+        "mechanism": "dependency_unavailable",
+        "evidence_refs": [
+          "e002",
+          "e003"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 625.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 172.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 78.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 3,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "1119dcad6a9de0f761056e9a857d720f",
+      "case_id": "op5-049",
+      "split": "calibration",
+      "family": "direct_inventory",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "inventory-service",
+        "mechanism": "database_pool",
+        "evidence_refs": [
+          "e002",
+          "e003"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 609.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 93.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 140.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 3,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "3119f1b7dfbce17ee05fab3086780c45",
+      "case_id": "op5-055",
+      "split": "calibration",
+      "family": "multiple_roots",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "abstained",
+        "service": null,
+        "mechanism": null,
+        "evidence_refs": [],
+        "evidence_supported": false,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 2406.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 78.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 406.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 1625.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "417303289e8dc6072ef7f6f5b322a81d",
+      "case_id": "op5-061",
+      "split": "calibration",
+      "family": "misleading_history",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "payment-service",
+        "mechanism": "dependency_unavailable",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 594.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 5,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "1422e8f208584bf447f039abb0d4c3d8",
+      "case_id": "op5-067",
+      "split": "calibration",
+      "family": "no_fault",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "abstained",
+        "service": null,
+        "mechanism": null,
+        "evidence_refs": [],
+        "evidence_supported": false,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 562.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 93.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 78.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "a55955fea99cd88f29f51b23b94a4a53",
+      "case_id": "op5-073",
+      "split": "calibration",
+      "family": "missing_metrics",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "abstained",
+        "service": null,
+        "mechanism": null,
+        "evidence_refs": [],
+        "evidence_supported": false,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 1187.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 203.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 234.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 438.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "5e1a87d49c8cdd881f7461a8c7622b95",
+      "case_id": "op5-079",
+      "split": "calibration",
+      "family": "missing_logs",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "checkout-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 594.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "7bd303a8eed46ac49d77d6166e965430",
+      "case_id": "op5-085",
+      "split": "calibration",
+      "family": "contradictory_logs",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "abstained",
+        "service": null,
+        "mechanism": null,
+        "evidence_refs": [],
+        "evidence_supported": false,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 859.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 141.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 219.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 78.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "ddb51d74fabd75268f35a4a05328de34",
+      "case_id": "op5-091",
+      "split": "calibration",
+      "family": "inconclusive",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "abstained",
+        "service": null,
+        "mechanism": null,
+        "evidence_refs": [],
+        "evidence_supported": false,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 704.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 235.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "825c2539f20adfb322c9fb2fbda150a6",
+      "case_id": "op5-097",
+      "split": "calibration",
+      "family": "tool_failure",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "abstained",
+        "service": null,
+        "mechanism": null,
+        "evidence_refs": [],
+        "evidence_supported": false,
+        "error_code": "MISSING_TOOL_EVIDENCE",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 469.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "DOWNSTREAM_UNAVAILABLE",
+          "latency_ms": 63.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 93.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "DOWNSTREAM_UNAVAILABLE",
+          "latency_ms": 62.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "f05c4597e3e8c0fe820242e4f1960801",
+      "case_id": "op5-103",
+      "split": "calibration",
+      "family": "approval_rejection",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "checkout-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 547.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 93.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 94.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "e936ef745c5e7179445e808c928ae660",
+      "case_id": "op5-109",
+      "split": "calibration",
+      "family": "failed_remediation",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "payment-service",
+        "mechanism": "dependency_unavailable",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 2735.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 204.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 375.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 1844.0
+        }
+      ],
+      "correct_root": null,
+      "task_success": false,
+      "unsupported": true,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "trace_id": "9f7e01bc37bed42b30d2f85cffed250b",
+      "case_id": "op5-115",
+      "split": "calibration",
+      "family": "verification_failure",
+      "arm": "baseline",
+      "mode": "rules",
+      "prediction": {
+        "status": "diagnosed",
+        "service": "checkout-service",
+        "mechanism": "worker_capacity",
+        "evidence_refs": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "evidence_supported": true,
+        "error_code": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model_calls": 0
+      },
+      "elapsed_ms": 610.0,
+      "tool_calls": [
+        {
+          "name": "get_incident",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "get_service_metrics",
+          "outcome": "OK",
+          "latency_ms": 125.0
+        },
+        {
+          "name": "search_service_logs",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "get_dependency_status",
+          "outcome": "OK",
+          "latency_ms": 109.0
+        },
+        {
+          "name": "list_recent_deployments",
+          "outcome": "OK",
+          "latency_ms": 110.0
+        }
+      ],
+      "correct_root": true,
+      "task_success": true,
+      "unsupported": false,
+      "appropriate_calls": 4,
+      "required_tool_coverage": true,
+      "unauthorized_action_attempts": 0,
+      "approval_bypass_attempts": 0,
+      "observed_side_effects": 0,
+      "estimated_cost_usd": 0.0
+    }
+  ],
+  "release_ready": false,
+  "release_note": "Diagnostic report alone cannot pass approval/recovery gates. Combine with fresh operational evidence; UNAVAILABLE gates fail closed."
+}

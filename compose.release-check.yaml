@@ -1,0 +1,46 @@
+name: opspilot-release-check
+x-app: &app
+  image: opspilot-release-check:local
+  build: {context: ., target: runtime}
+  environment:
+    OPSPILOT_DATABASE_URL: postgresql+psycopg://release_check:${SMOKE_DB_PASSWORD:?Initialize release smoke}@db:5432/opspilot_release_check
+    OPSPILOT_CONTROL_TOKEN: ${SMOKE_CONTROL_TOKEN:?Initialize release smoke}
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  tmpfs: [/tmp]
+  networks: [release]
+services:
+  db:
+    image: postgres:18.6-bookworm@sha256:5c4783a8cc3f0074912164f94dfa1be4e043438f0f707cf968d7af9a0d31a2c8
+    environment:
+      POSTGRES_USER: release_check
+      POSTGRES_PASSWORD: ${SMOKE_DB_PASSWORD:?Initialize release smoke}
+      POSTGRES_DB: opspilot_release_check
+    volumes: ["release-data:/var/lib/postgresql"]
+    networks: [release]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U release_check -d opspilot_release_check"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  migrate:
+    <<: *app
+    command: [alembic, upgrade, head]
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *app
+    ports: ["127.0.0.1::8000"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=3)"]
+      interval: 3s
+      timeout: 4s
+      retries: 30
+volumes:
+  release-data:
+networks:
+  release:
+    driver: bridge

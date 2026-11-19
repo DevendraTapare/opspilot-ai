@@ -1,0 +1,23 @@
+{
+  "source_lock_dataset_sha256": "e1fe61fddc261c930f5e8b86f9cea548f2b320c396cb85141355b491e0cc16ff",
+  "split": "calibration",
+  "case_ids": [
+    "op5-001",
+    "op5-007",
+    "op5-013",
+    "op5-019",
+    "op5-025",
+    "op5-031"
+  ],
+  "arms": [
+    "structured"
+  ],
+  "limits": {
+    "tools": 8,
+    "model_calls": 14,
+    "seconds": 180,
+    "per_call_seconds": 15
+  },
+  "created_at": "2026-11-03T09:33:14.849271+00:00",
+  "fixture_smoke": true
+}

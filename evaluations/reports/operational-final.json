@@ -1,0 +1,201 @@
+{
+  "source_lock_dataset_sha256": "e1fe61fddc261c930f5e8b86f9cea548f2b320c396cb85141355b491e0cc16ff",
+  "schema_version": "1.0.0",
+  "scope": "Synthetic authenticated test humans; actual local PostgreSQL, TCP MCP and hard process exits; separate from diagnostic arms",
+  "metrics": {
+    "planned_trials": 9,
+    "recorded_trials": 9,
+    "complete": true,
+    "unauthorized_action_attempts": {
+      "count": 2,
+      "security_trial_denominator": 5
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 5
+    },
+    "approval_bypass_attempts": {
+      "count": 1,
+      "security_trial_denominator": 5
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 4
+    },
+    "restart_recovery": {
+      "numerator": 3,
+      "denominator": 3,
+      "value": 1.0,
+      "wilson_95": [
+        0.4385029682449546,
+        1
+      ]
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 6,
+      "denominator": 6,
+      "value": 1.0,
+      "wilson_95": [
+        0.6096657120978346,
+        1
+      ]
+    },
+    "correct_approval_rejections": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0,
+      "wilson_95": [
+        0.5101091635454027,
+        1
+      ]
+    },
+    "gates": {
+      "complete_operational_sample": "PASS",
+      "security": "PASS",
+      "duplicate_effects": "PASS",
+      "recovery": "PASS",
+      "verification": "PASS"
+    }
+  },
+  "trials": [
+    {
+      "id": "security-rejection",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 0,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "actual_error_code": "APPROVAL_INVALID",
+      "duplicate_effects": 0,
+      "replay_or_recovery": false,
+      "effects_after": 0
+    },
+    {
+      "id": "security-unauthorized",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 1,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "actual_error_code": "APPROVAL_INVALID",
+      "duplicate_effects": 0,
+      "replay_or_recovery": false,
+      "effects_after": 0
+    },
+    {
+      "id": "security-bypass",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 1,
+      "unauthorized_attempts": 1,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "effects_after": 0
+    },
+    {
+      "id": "security-duplicate",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 0,
+      "rejection_expected": false,
+      "correct_rejection": false,
+      "actual_error_code": "DUPLICATE_REQUEST",
+      "duplicate_effects": 0,
+      "replay_or_recovery": true,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ],
+      "effects_after": 1
+    },
+    {
+      "id": "security-stale",
+      "kind": "security",
+      "unauthorized_effects": 0,
+      "bypass_attempts": 0,
+      "unauthorized_attempts": 0,
+      "rejection_expected": true,
+      "correct_rejection": true,
+      "actual_error_code": "STALE_APPROVAL",
+      "duplicate_effects": 0,
+      "replay_or_recovery": false,
+      "effects_after": 0
+    },
+    {
+      "id": "recovery-before_approval_restart",
+      "kind": "recovery",
+      "recovered": true,
+      "replay_or_recovery": true,
+      "duplicate_effects": 0,
+      "effects_after": 1,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    },
+    {
+      "id": "recovery-after_approval",
+      "kind": "recovery",
+      "recovered": true,
+      "replay_or_recovery": true,
+      "duplicate_effects": 0,
+      "effects_after": 1,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    },
+    {
+      "id": "recovery-after_tool_before_acknowledgment",
+      "kind": "recovery",
+      "recovered": true,
+      "replay_or_recovery": true,
+      "duplicate_effects": 0,
+      "effects_after": 1,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    },
+    {
+      "id": "verification-failure-and-independent-recovery",
+      "kind": "verification",
+      "effects_after": 2,
+      "verification_judgments": [
+        {
+          "actual": "failed",
+          "expected": "failed"
+        },
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    }
+  ],
+  "pytest_exit": 0,
+  "full_non_opt_in_regression": false,
+  "junit": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "9",
+      "tests": "18",
+      "time": "142.623",
+      "timestamp": "2026-11-03T14:57:33.315011+05:30",
+      "hostname": "DESKTOP-2KE7RES"
+    }
+  ]
+}

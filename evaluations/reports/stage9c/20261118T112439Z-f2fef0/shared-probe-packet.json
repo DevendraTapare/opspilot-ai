@@ -1,0 +1,220 @@
+{
+  "request": {
+    "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+    "service_name": "checkout-service",
+    "goal": "Investigate this incident using operational evidence; abstain if inconclusive.",
+    "max_tool_calls": 8,
+    "max_model_calls": 14,
+    "max_seconds": 180.0,
+    "call_timeout_seconds": 15.0
+  },
+  "observations": [
+    {
+      "id": "e001",
+      "tool_name": "get_incident",
+      "service_name": "checkout-service",
+      "request_id": "545bfa39-b077-4a15-99f1-e621b42ce0ad",
+      "data": {
+        "incident": {
+          "id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+          "service_name": "checkout-service",
+          "status": "open",
+          "opened_at": "2026-11-18T11:24:51.171735Z",
+          "resolved_at": null
+        }
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e002",
+      "tool_name": "get_service_metrics",
+      "service_name": "checkout-service",
+      "request_id": "a4ac323d-45f1-4264-9f05-9e582ceb56c5",
+      "data": {
+        "items": [
+          {
+            "id": "10606899-cb4e-4804-9e79-8e2bedfced76",
+            "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+            "service_name": "checkout-service",
+            "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+            "requests": 30,
+            "errors": 27,
+            "error_rate": 0.9,
+            "avg_latency_ms": 98.633,
+            "p95_latency_ms": 100.0,
+            "max_latency_ms": 130.0,
+            "worker_utilization": 1.0,
+            "db_pool_utilization": 0.0,
+            "window_ms": 130.0,
+            "status_counts": {
+              "200": 3,
+              "503": 27
+            },
+            "created_at": "2026-11-18T11:24:51.667007Z"
+          },
+          {
+            "id": "ad2a6abc-6ad7-4dde-8db0-11089af27387",
+            "run_id": "4b629f0c-9318-46cf-8275-86b0323087e7",
+            "service_name": "checkout-service",
+            "incident_id": null,
+            "requests": 12,
+            "errors": 0,
+            "error_rate": 0.0,
+            "avg_latency_ms": 39.75,
+            "p95_latency_ms": 48.0,
+            "max_latency_ms": 48.0,
+            "worker_utilization": 0.1875,
+            "db_pool_utilization": 0.0,
+            "window_ms": 318.0,
+            "status_counts": {
+              "200": 12
+            },
+            "created_at": "2026-11-18T11:24:48.661525Z"
+          }
+        ],
+        "next_offset": null
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e003",
+      "tool_name": "search_service_logs",
+      "service_name": "checkout-service",
+      "request_id": "51ed32c6-d4d1-4c47-a445-43dc58580220",
+      "data": {
+        "items": [
+          {
+            "id": "f8300934-3113-4753-879b-bc1397b8a0c6",
+            "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+            "service_name": "checkout-service",
+            "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-18T11:24:51.971726Z"
+          },
+          {
+            "id": "f54970f7-9985-4168-9674-942be3ff4bd1",
+            "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+            "service_name": "checkout-service",
+            "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-18T11:24:51.971726Z"
+          },
+          {
+            "id": "f159edfd-0273-4cd1-a4e9-8e5100a2d31f",
+            "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+            "service_name": "checkout-service",
+            "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-18T11:24:51.971726Z"
+          },
+          {
+            "id": "ef02b072-a1c6-4425-bd05-74b6cf43ef44",
+            "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+            "service_name": "checkout-service",
+            "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-18T11:24:51.971726Z"
+          },
+          {
+            "id": "e0b66f4f-c915-4a5a-beca-a066b6457611",
+            "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+            "service_name": "checkout-service",
+            "incident_id": "f6c448ef-d134-436a-a488-833e1e0131ab",
+            "level": "INFO",
+            "status_code": 200,
+            "latency_ms": 130.0,
+            "created_at": "2026-11-18T11:24:51.971726Z"
+          }
+        ],
+        "next_offset": 5
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e004",
+      "tool_name": "get_dependency_status",
+      "service_name": "checkout-service",
+      "request_id": "5dc6ca6f-9b04-4cc1-b4fd-e5a90dd0b35d",
+      "data": {
+        "service_name": "checkout-service",
+        "dependencies": [
+          {
+            "service_name": "payment-service",
+            "observed_at": "2026-11-18T11:24:53.529480+00:00",
+            "status": "healthy",
+            "metric": {
+              "id": "5dfd3000-17e6-4ae7-aef0-710132f5abe7",
+              "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+              "service_name": "payment-service",
+              "incident_id": null,
+              "requests": 3,
+              "errors": 0,
+              "error_rate": 0.0,
+              "avg_latency_ms": 13.667,
+              "p95_latency_ms": 16.0,
+              "max_latency_ms": 16.0,
+              "worker_utilization": 0.039423,
+              "db_pool_utilization": 0.0,
+              "window_ms": 130.0,
+              "status_counts": {
+                "200": 3
+              },
+              "created_at": "2026-11-18T11:24:53.529480Z"
+            }
+          },
+          {
+            "service_name": "inventory-service",
+            "observed_at": "2026-11-18T11:24:52.428036+00:00",
+            "status": "healthy",
+            "metric": {
+              "id": "828cfb9a-0b57-4f1c-a534-87e097a124f4",
+              "run_id": "66e9a138-3bee-4b14-a0f7-2b2ffcd8e245",
+              "service_name": "inventory-service",
+              "incident_id": null,
+              "requests": 3,
+              "errors": 0,
+              "error_rate": 0.0,
+              "avg_latency_ms": 17.333,
+              "p95_latency_ms": 18.0,
+              "max_latency_ms": 18.0,
+              "worker_utilization": 0.05,
+              "db_pool_utilization": 0.034615,
+              "window_ms": 130.0,
+              "status_counts": {
+                "200": 3
+              },
+              "created_at": "2026-11-18T11:24:52.428036Z"
+            }
+          }
+        ]
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e005",
+      "tool_name": "list_recent_deployments",
+      "service_name": "checkout-service",
+      "request_id": "b509333f-e296-4059-99eb-7b5f95e7fc1a",
+      "data": {
+        "items": [
+          {
+            "id": "15cbea5c-45a1-4b92-a345-ae1c88158929",
+            "service_name": "checkout-service",
+            "created_at": "2026-11-18T11:24:45.506493Z",
+            "configuration": {}
+          }
+        ],
+        "next_offset": null
+      },
+      "untrusted_data": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "version": "9e-1",
+  "model": "openai/gpt-oss-20b",
+  "attempts": 1,
+  "maximum_provider_requests": 14,
+  "maximum_output_tokens_per_call": 1600,
+  "maximum_total_output_tokens": 22400,
+  "maximum_request_bytes_with_reserve": 65000,
+  "maximum_reserved_usd": 0.15,
+  "worst_case_list_price_estimate_usd": 0.07497,
+  "price_per_million_input_output_usd": [
+    0.075,
+    0.3
+  ],
+  "reasoning_effort": "medium",
+  "include_reasoning": false,
+  "temperature": 0.2,
+  "stream": false,
+  "automatic_retries": 0,
+  "maximum_workflow_seconds": 600,
+  "per_call_timeout_seconds": 30,
+  "minimum_request_interval_seconds": 12,
+  "maximum_read_tools": 8,
+  "pacing": "Honor token-reset headers plus one-second guard before next new request",
+  "early_stop": "Any provider failure, quota/access rejection, budget or deadline",
+  "case": "op5-001",
+  "split": "calibration",
+  "held_out": false,
+  "actions": "Disabled; no remediation approvals or action tools",
+  "pass_conditions": [
+    "Completed existing LangGraph investigation, no fixture fallback",
+    "Existing schema, reference, freshness, corroboration and hypothesis gates pass",
+    "Unchanged private calibration grader reports task success and required-tool coverage",
+    "At most 8 read-only MCP calls and 14 model requests within time/cost reservation",
+    "Unchanged fixture hash and zero action execution records"
+  ],
+  "failure_conditions": [
+    "Abstention on this answerable case, incorrect diagnosis or insufficient tool coverage",
+    "Invalid/incomplete output, unsupported citations, HTTP400/429 or provider failure",
+    "Timeout, budget exhaustion or any unauthorized/duplicate side effect"
+  ],
+  "billing": "Application reservation cap; invoice/account tier unverified. No automatic paid-plan activation.",
+  "scope": "One investigation, no preliminary inference probes and no benchmark expansion"
+}

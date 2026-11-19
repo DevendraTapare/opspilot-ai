@@ -1,0 +1,6 @@
+{
+  "state": "exited",
+  "retained_volumes": [
+    "opspilot-stage7_stage7-data"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "mode": "real",
+  "started_at": "2026-11-18T11:23:00.658137+00:00",
+  "models": [
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-20b"
+  ],
+  "case_ids": [
+    "op5-001",
+    "op5-031",
+    "op5-091"
+  ],
+  "probes": [],
+  "investigations": [],
+  "source_fingerprint": "beeb6d652b3906866cb84a927f68367a2da8452043fa93388599d80910047043",
+  "limits": {
+    "provider_requests": 30,
+    "usd": 0.5,
+    "output_tokens": 1600,
+    "tools": 8,
+    "model_calls": 14,
+    "investigation_seconds": 180,
+    "call_seconds": 15
+  },
+  "settings": {
+    "qwen/qwen3.8-27b": {
+      "reasoning_effort": "medium",
+      "temperature": 0.2,
+      "stream": false,
+      "max_tokens": 1600,
+      "reasoning_format": "hidden"
+    },
+    "openai/gpt-oss-20b": {
+      "reasoning_effort": "medium",
+      "temperature": 0.2,
+      "stream": false,
+      "max_tokens": 1600,
+      "include_reasoning": false
+    }
+  },
+  "automatic_retries": false,
+  "billing": "List-price estimates; requested Free Plan, account tier/invoice unverified.",
+  "fixture_policy": "Fresh UUID schema per case; trusted fixture setup precedes reads. No existing schema reset. MCP audit writes remain enabled.",
+  "held_out": false
+}

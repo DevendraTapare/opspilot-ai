@@ -1,0 +1,205 @@
+{
+  "schema_version": "portfolio-release-1",
+  "stage": 8,
+  "status": "CONDITIONAL",
+  "real_model": {
+    "configured": false,
+    "attempted_evaluations": 0,
+    "tokens": null,
+    "cost_usd": null
+  },
+  "python": {
+    "full": {
+      "passed": 286,
+      "skipped": 49,
+      "error": 1
+    },
+    "full_exit": 1,
+    "rerun": {
+      "passed": 1
+    },
+    "rerun_exit": 0,
+    "latest_per_node": {
+      "passed": 287,
+      "skipped": 49
+    },
+    "clean_full_run": false,
+    "note": "One PG connection setup error passed unchanged in isolation; retained."
+  },
+  "additional_release_tests": {
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "time": 0.196
+  },
+  "container_portable_tests": {
+    "tests": 141,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 48,
+    "time": 87.302
+  },
+  "browser_runs": [
+    {
+      "source": "artifacts/stage8/20261104T113747Z-browser-2aa02a/browser/stage6-results.json",
+      "stats": {
+        "startTime": "2026-11-04T11:38:09.698Z",
+        "duration": 147757.03,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "mode": "fixture"
+    },
+    {
+      "source": "artifacts/stage8/20261104T114316Z-browser-45902b/browser/stage6-results.json",
+      "stats": {
+        "startTime": "2026-11-04T11:43:32.564Z",
+        "duration": 123691.744,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "mode": "fixture"
+    },
+    {
+      "source": "artifacts/stage8/20261104T114639Z-browser-1b5be7/browser/stage6-results.json",
+      "stats": {
+        "startTime": "2026-11-04T11:46:58.509Z",
+        "duration": 51827.14,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "mode": "fixture"
+    },
+    {
+      "source": "artifacts/stage8/20261104T114756Z-browser-7c49b6/browser/stage6-results.json",
+      "stats": {
+        "startTime": "2026-11-04T11:48:22.325Z",
+        "duration": 45913.01,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "mode": "fixture"
+    },
+    {
+      "source": "artifacts/stage8/20261104T115404Z-browser-78c060/browser/stage6-results.json",
+      "stats": {
+        "startTime": "2026-11-04T11:54:20.110Z",
+        "duration": 72203.701,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "mode": "fixture"
+    }
+  ],
+  "clean_combined_browser_run": true,
+  "docker_startup": {
+    "project": "opspilot-release-check",
+    "passed": true,
+    "volume_retained": true,
+    "readiness": 200,
+    "services": 3,
+    "unauthorized_fault": 401,
+    "healthy_workloads": 3,
+    "api_binding": "127.0.0.1:57370",
+    "shutdown_exit": 0
+  },
+  "audits": {
+    "python_packages": 78,
+    "python_advisories": 0,
+    "python_unchecked_packages": 0,
+    "npm_dependencies": 162,
+    "npm_advisories": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "publication_scan": {
+    "passed": true,
+    "mode": "local-candidate-files",
+    "files": 207,
+    "findings": 0
+  },
+  "ci": {
+    "prepared": true,
+    "github_executed": false,
+    "permissions": "contents:read",
+    "actions_sha_pinned": true
+  },
+  "gates": {
+    "real_model": "UNAVAILABLE",
+    "historical_baseline_unsupported": "FAIL",
+    "public_deployment": "NOT_READY",
+    "publication": "CONDITIONAL_PREVIEW"
+  },
+  "benchmark": "benchmark-stage5.json (historical, not a current-source rerun)",
+  "source_artifacts": [
+    {
+      "path": "artifacts/stage7/20261104T112126Z-8038c0/cases.json",
+      "sha256": "dca81f19b3b05c3f8962763f379864c4cb60e141a66615988cd377d48564abae"
+    },
+    {
+      "path": "artifacts/stage7/20261104T113746Z-14efe6/cases.json",
+      "sha256": "8c83eb8f178122ea2ef22aebba2e589ba3daa875c2b92c2967171c268d0a2164"
+    },
+    {
+      "path": "artifacts/stage8/20261104T113744Z-docker-b0e41e/result.json",
+      "sha256": "a8aca27343cd07c87ae9952761ebb31085c9b98e7ae979a52f1897b66f6f0beb"
+    },
+    {
+      "path": "artifacts/stage8/docker-portable/pytest.xml",
+      "sha256": "bd9729c4590cc5460d98867d723536c4946d5545318fd8d5021ba1fb987dc721"
+    },
+    {
+      "path": "artifacts/stage8-python-audit.json",
+      "sha256": "595bda4a256dfaa4dfa8ad023fd9f2c7d39e824e0d8da50938481385d508fb66"
+    },
+    {
+      "path": "artifacts/stage8-npm-audit-final.json",
+      "sha256": "92b52fb4333901bbc06a6bf2a5a590a6258864fab3def149ffe584725e62081a"
+    },
+    {
+      "path": "artifacts/stage8/hygiene-final-verified.json",
+      "sha256": "f6ae4f96876ebb707e48ed87e0326941f2c1cf8fd26cf987395d38228461ac7e"
+    },
+    {
+      "path": "artifacts/stage8/final-hygiene-tests.xml",
+      "sha256": "75379ba00e6ee1ea74afb7dc59423e8e378bde8818e85eff8efc11e9ce12aabe"
+    },
+    {
+      "path": "artifacts/stage8/20261104T113747Z-browser-2aa02a/browser/stage6-results.json",
+      "sha256": "c6b94270a31ecd6658f8fb957c2c512ebf82153ee47645b00caf73017783ff2e"
+    },
+    {
+      "path": "artifacts/stage8/20261104T114316Z-browser-45902b/browser/stage6-results.json",
+      "sha256": "c419ca2759c02fb531b52797212cb0535dac89937e80a65f01d097c6e3bd3254"
+    },
+    {
+      "path": "artifacts/stage8/20261104T114639Z-browser-1b5be7/browser/stage6-results.json",
+      "sha256": "2e5e6d1312ac61d22a71ce75a30a4e38ba95fa0f70da05b28607286be4c00150"
+    },
+    {
+      "path": "artifacts/stage8/20261104T114756Z-browser-7c49b6/browser/stage6-results.json",
+      "sha256": "c365ac155b7aba5f49267b658d833476f416d519b8a1df37a49c5802111b9390"
+    },
+    {
+      "path": "artifacts/stage8/20261104T115404Z-browser-78c060/browser/stage6-results.json",
+      "sha256": "1ebfba92ba4d20de05a56f41d0614d4c9d4030685d2198ccff3df1cfe9479007"
+    }
+  ],
+  "scope": "Actual local checks. No CI, cloud deployment, real LLM or superiority claim. Failed attempts/reruns remain separate; samples must not be pooled."
+}

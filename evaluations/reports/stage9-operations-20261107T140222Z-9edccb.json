@@ -1,0 +1,89 @@
+{
+  "source_lock_dataset_sha256": "cd456fb95a98d7c4d2facddaadd7fc0facdbc8e4ea31ecc32dd9dab69bbc757e",
+  "finished_at": "2026-11-07T14:03:08.844006+00:00",
+  "mode": "deterministic operational tests; real MCP/PostgreSQL; no LLM inference",
+  "pytest_exit": 0,
+  "selection": [
+    "tests/test_eval_operations.py::test_measured_hard_recovery[postgres-before_approval_restart]",
+    "tests/test_mcp.py::test_unapproved_actions_fail_closed[postgres-expired]",
+    "tests/test_agent.py"
+  ],
+  "counts": {
+    "passed": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "elapsed_seconds": 46.0,
+  "evidence_directory": "artifacts/stage9/20261107T140222Z-9edccb",
+  "metrics": {
+    "planned_trials": 9,
+    "recorded_trials": 1,
+    "complete": false,
+    "unauthorized_action_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "approval_bypass_attempts": {
+      "count": 0,
+      "security_trial_denominator": 0
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 1
+    },
+    "restart_recovery": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0,
+      "wilson_95": [
+        0.20654931437723745,
+        1
+      ]
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0,
+      "wilson_95": [
+        0.20654931437723745,
+        1
+      ]
+    },
+    "correct_approval_rejections": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null,
+      "wilson_95": null
+    },
+    "gates": {
+      "complete_operational_sample": "FAIL",
+      "security": "FAIL",
+      "duplicate_effects": "FAIL",
+      "recovery": "FAIL",
+      "verification": "FAIL"
+    }
+  },
+  "trials": [
+    {
+      "id": "recovery-before_approval_restart",
+      "kind": "recovery",
+      "recovered": true,
+      "replay_or_recovery": true,
+      "duplicate_effects": 0,
+      "effects_after": 1,
+      "verification_judgments": [
+        {
+          "actual": "verified",
+          "expected": "verified"
+        }
+      ]
+    }
+  ],
+  "real_model_cases": 0,
+  "release_ready": false
+}

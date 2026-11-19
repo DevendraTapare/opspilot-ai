@@ -1,0 +1,130 @@
+{
+  "stage": "9E.2 preflight",
+  "verdict": "CONDITIONAL",
+  "live_approval": "Required, not received",
+  "provider_requests": 0,
+  "inference_spend_usd": 0,
+  "plan": {
+    "version": "9e2-1",
+    "approval": "Required; not approved",
+    "investigations": 1,
+    "case": "op5-001",
+    "split": "calibration",
+    "model": "openai/gpt-oss-20b",
+    "limits": {
+      "max_model_calls": 11,
+      "max_tool_calls": 5,
+      "max_investigation_rounds": 4,
+      "max_seconds": 600,
+      "call_timeout_seconds": 30,
+      "max_prompt_estimated_tokens": 20000,
+      "max_estimated_tokens": 160000
+    },
+    "maximum_output_tokens_per_request": 1600,
+    "maximum_cumulative_output_tokens": 17600,
+    "reasoning_effort": "medium",
+    "minimum_request_spacing_seconds": 12,
+    "token_reset_guard_seconds": 1,
+    "original_requested_outer_usd": 0.05,
+    "local_reservation_ceiling_usd": 0.02,
+    "maximum_estimated_list_price_usd": 0.01596,
+    "prices_usd_per_million_input_output": [
+      0.075,
+      0.3
+    ],
+    "accounting": "Integer nanodollars; persist before dispatch; no refunds; missing usage retains full reservation",
+    "invoice_guarantee": false,
+    "billing_limit": "Byte-based admission estimate is not certified tokenizer/billing data; no account-wide or invoice guarantee",
+    "request_slots": "1 triage + up to 4*(planning + assessment) + 1 root cause + 1 remediation proposal",
+    "mcp_calls": "1 bootstrap incident read + up to 4 model-selected read-only diagnostics",
+    "stop_http": [
+      400,
+      413,
+      429
+    ],
+    "stop": "Any non-200 response, invalid/incomplete output/citations, transport error, quota/access denial, budget/deadline, ledger failure",
+    "automatic_retries": 0,
+    "preliminary_inference_probes": 0,
+    "remediation_execution": false,
+    "default_model_change": false,
+    "evidence_validation_change": false,
+    "benchmark_expansion": false,
+    "success": [
+      "Supported final diagnosis: existing gates, evidence review and private grader pass",
+      "Correct evidence-based abstention: explicit model abstain, no failure, no proposal, independent review confirms genuinely insufficient/contradictory evidence"
+    ],
+    "not_success": "Incomplete, budget exhaustion, transport/HTTP/schema/citation failure; safe abstention on sufficient answerable evidence is not successful diagnosis",
+    "outputs": "Plan, pre-dispatch ledger, validated decisions, final state/evidence, private grade, fixture/effect checks, review-required outcome"
+  },
+  "local_guard_verified": true,
+  "actual_invoice_guarantee": false,
+  "strict_005_invoice_requirement": "Not established; blocked if mandatory",
+  "safer_local_cap_usd": 0.02,
+  "estimated_maximum_usd": 0.01596,
+  "tests": {
+    "final_regression": {
+      "passed": 198,
+      "skipped_postgres": 3,
+      "deselected_real_model": 1
+    },
+    "initial_guard": {
+      "passed": 22
+    },
+    "mock_workflow": {
+      "passed": 23
+    },
+    "extended_guard_before_test_context_correction": {
+      "passed": 25,
+      "failed": 1
+    },
+    "first_broad": {
+      "passed": 194,
+      "skipped": 3,
+      "failed": 1,
+      "deselected": 1
+    },
+    "unchanged_deadline_rerun": {
+      "passed": 1
+    }
+  },
+  "known_test_limit": "Existing slow-drip deadline timing failure passed unchanged rerun and final full selection; timing cause unresolved",
+  "database_integrations_this_preflight": 0,
+  "guard_properties": [
+    "Pre-dispatch integer reservation under lock",
+    "No refunds for low or missing reported usage",
+    "Atomic ledger replacement before dispatch; abort on persistence failure",
+    "Single in-flight request; existing ledger cannot reset",
+    "All non-200 statuses stop, including400/413/429",
+    "Timeouts/cancellations/invalid outputs stop; no retries",
+    "Reported overage stops future calls but cannot undo an already reported charge"
+  ],
+  "success_requires": "Supported final diagnosis or independently confirmed correct evidence-based abstention; no incomplete result success",
+  "remediation_executed": false,
+  "default_model_changed": false,
+  "shared_agent_security_code_changed": false,
+  "protected_files": 204,
+  "protected_changed": [],
+  "files_created": [
+    "scripts/stage9e2_budget.py",
+    "scripts/verify_stage9e2.py",
+    "tests/test_stage9e2_preflight.py",
+    "docs/STAGE_9E2_LIVE_PREFLIGHT.md"
+  ],
+  "source_sha256": {
+    "scripts/stage9e2_budget.py": "484f9259a54988fc9808c7d190bb74729152210c1e44fb594a1ba64c7e3a6d43",
+    "scripts/verify_stage9e2.py": "67e0ed3d6b841256d080b1fff6e9f8df1e9ee7688ad7c093c459c9b8e1f1aa5d",
+    "tests/test_stage9e2_preflight.py": "a1ba3185492aca434ca147e35aa588a6a5e11ac867769946d0f74569f36a1658",
+    "docs/STAGE_9E2_LIVE_PREFLIGHT.md": "b50ca91350b3b57fa9a6f6fd1b1524a01bb6331c576ce72ce03685f361fe1644"
+  },
+  "report": "docs/STAGE_9E2_LIVE_PREFLIGHT.md",
+  "evidence_directory": "artifacts/stage9e2/20261119T061523Z",
+  "benchmark_expansion": false,
+  "commit_push_deployment": false,
+  "checks": {
+    "ruff": "passed",
+    "format": "3 files passed",
+    "hygiene_candidate_files": 312,
+    "hygiene_findings": 0,
+    "database_status": "stopped, volume retained"
+  }
+}

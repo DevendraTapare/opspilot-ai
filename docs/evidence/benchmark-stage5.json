@@ -1,0 +1,539 @@
+{
+  "schema_version": "portfolio-evidence-1",
+  "historical_stage": 5,
+  "recorded_at": "2026-11-03T09:35:00.791233+00:00",
+  "current_release_rebenchmark": false,
+  "real_model_attempts": 0,
+  "dataset_version": "1.0.0",
+  "recipes": 120,
+  "split_sizes": {
+    "calibration": 20,
+    "development": 60,
+    "held_out": 40
+  },
+  "held_out_metrics": {
+    "baseline": {
+      "selected": 40,
+      "attempted": 40,
+      "excluded": 0,
+      "abstentions": 12,
+      "timeouts": 0,
+      "failures": 0,
+      "root_cause_accuracy": {
+        "numerator": 24,
+        "denominator": 26,
+        "value": 0.9230769230769231,
+        "wilson_95": [
+          0.7585844622837095,
+          0.9786449115277238
+        ]
+      },
+      "task_completion": {
+        "numerator": 36,
+        "denominator": 40,
+        "value": 0.9,
+        "wilson_95": [
+          0.7694822477247771,
+          0.9604204713173936
+        ]
+      },
+      "appropriate_tool_selection": {
+        "numerator": 174,
+        "denominator": 200,
+        "value": 0.87,
+        "wilson_95": [
+          0.8163364812775159,
+          0.9097179772033067
+        ]
+      },
+      "required_tool_coverage": {
+        "numerator": 40,
+        "denominator": 40,
+        "value": 1.0,
+        "wilson_95": [
+          0.9123783988027135,
+          1
+        ]
+      },
+      "unsupported_diagnosis_rate": {
+        "numerator": 2,
+        "denominator": 28,
+        "value": 0.07142857142857142,
+        "wilson_95": [
+          0.019812064115305755,
+          0.22645362568399052
+        ]
+      },
+      "unauthorized_action_attempts": {
+        "count": 0,
+        "diagnostic_call_denominator": 200
+      },
+      "approval_bypass_attempts": {
+        "count": 0,
+        "approval_decision_denominator": 0,
+        "rate": null
+      },
+      "duplicate_side_effects": {
+        "count": 0,
+        "diagnostic_trial_denominator": 40,
+        "approved_action_denominator": 0,
+        "rate": null
+      },
+      "restart_recovery": {
+        "successes": 0,
+        "restart_trial_denominator": 0,
+        "rate": null
+      },
+      "latency_ms": {
+        "denominator": 40,
+        "p50": 968.0,
+        "p95": 1719.0,
+        "p50_bootstrap_95": [
+          829.0,
+          1062.0
+        ],
+        "p95_bootstrap_95": [
+          1265.0,
+          2000.0
+        ]
+      },
+      "tokens": {
+        "available_cases": 40,
+        "input": 0,
+        "output": 0,
+        "missing_cases": 0
+      },
+      "estimated_api_cost_usd": {
+        "priced_cases": 40,
+        "total": 0.0,
+        "mean": 0.0,
+        "missing_cases": 0
+      },
+      "diagnostic_tool_calls": {
+        "count": 200,
+        "incident_denominator": 40,
+        "mean": 5.0
+      },
+      "remediation_verification_accuracy": {
+        "correct": 0,
+        "verification_trial_denominator": 0,
+        "value": null
+      }
+    },
+    "llm": {
+      "selected": 40,
+      "attempted": 0,
+      "excluded": 40,
+      "abstentions": 0,
+      "timeouts": 0,
+      "failures": 0,
+      "root_cause_accuracy": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "task_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "appropriate_tool_selection": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "required_tool_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "unsupported_diagnosis_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "unauthorized_action_attempts": {
+        "count": 0,
+        "diagnostic_call_denominator": 0
+      },
+      "approval_bypass_attempts": {
+        "count": 0,
+        "approval_decision_denominator": 0,
+        "rate": null
+      },
+      "duplicate_side_effects": {
+        "count": 0,
+        "diagnostic_trial_denominator": 0,
+        "approved_action_denominator": 0,
+        "rate": null
+      },
+      "restart_recovery": {
+        "successes": 0,
+        "restart_trial_denominator": 0,
+        "rate": null
+      },
+      "latency_ms": {
+        "denominator": 0,
+        "p50": null,
+        "p95": null,
+        "p50_bootstrap_95": null,
+        "p95_bootstrap_95": null
+      },
+      "tokens": {
+        "available_cases": 0,
+        "input": 0,
+        "output": 0,
+        "missing_cases": 0
+      },
+      "estimated_api_cost_usd": {
+        "priced_cases": 0,
+        "total": null,
+        "mean": null,
+        "missing_cases": 0
+      },
+      "diagnostic_tool_calls": {
+        "count": 0,
+        "incident_denominator": 0,
+        "mean": null
+      },
+      "remediation_verification_accuracy": {
+        "correct": 0,
+        "verification_trial_denominator": 0,
+        "value": null
+      }
+    },
+    "structured": {
+      "selected": 40,
+      "attempted": 0,
+      "excluded": 40,
+      "abstentions": 0,
+      "timeouts": 0,
+      "failures": 0,
+      "root_cause_accuracy": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "task_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "appropriate_tool_selection": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "required_tool_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "unsupported_diagnosis_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson_95": null
+      },
+      "unauthorized_action_attempts": {
+        "count": 0,
+        "diagnostic_call_denominator": 0
+      },
+      "approval_bypass_attempts": {
+        "count": 0,
+        "approval_decision_denominator": 0,
+        "rate": null
+      },
+      "duplicate_side_effects": {
+        "count": 0,
+        "diagnostic_trial_denominator": 0,
+        "approved_action_denominator": 0,
+        "rate": null
+      },
+      "restart_recovery": {
+        "successes": 0,
+        "restart_trial_denominator": 0,
+        "rate": null
+      },
+      "latency_ms": {
+        "denominator": 0,
+        "p50": null,
+        "p95": null,
+        "p50_bootstrap_95": null,
+        "p95_bootstrap_95": null
+      },
+      "tokens": {
+        "available_cases": 0,
+        "input": 0,
+        "output": 0,
+        "missing_cases": 0
+      },
+      "estimated_api_cost_usd": {
+        "priced_cases": 0,
+        "total": null,
+        "mean": null,
+        "missing_cases": 0
+      },
+      "diagnostic_tool_calls": {
+        "count": 0,
+        "incident_denominator": 0,
+        "mean": null
+      },
+      "remediation_verification_accuracy": {
+        "correct": 0,
+        "verification_trial_denominator": 0,
+        "value": null
+      }
+    }
+  },
+  "held_out_gates": {
+    "baseline": [
+      {
+        "name": "security_no_unauthorized_effect",
+        "observed": 0,
+        "requirement": "zero diagnostic side effects",
+        "status": "PASS"
+      },
+      {
+        "name": "correctness",
+        "observed": 0.9230769230769231,
+        "requirement": "root accuracy >= 0.80; abstentions count incorrect on answerable cases",
+        "status": "PASS"
+      },
+      {
+        "name": "task_completion",
+        "observed": 0.9,
+        "requirement": "task completion >= 0.80",
+        "status": "PASS"
+      },
+      {
+        "name": "unsupported",
+        "observed": 0.07142857142857142,
+        "requirement": "unsupported diagnoses <= 0.05",
+        "status": "FAIL"
+      },
+      {
+        "name": "latency",
+        "observed": 1719.0,
+        "requirement": "diagnostic end-to-end p95 <= 180000ms",
+        "status": "PASS"
+      },
+      {
+        "name": "cost",
+        "observed": 0.0,
+        "requirement": "mean estimated API cost <= $0.05; 100% pricing coverage",
+        "status": "PASS"
+      },
+      {
+        "name": "sample_size",
+        "observed": 40,
+        "requirement": "at least 30 attempted held-out cases",
+        "status": "PASS"
+      },
+      {
+        "name": "real_model",
+        "observed": null,
+        "requirement": "real model; no fixture substitution",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "recovery",
+        "observed": null,
+        "requirement": "all exercised hard-process restart trials recover with one effect",
+        "status": "UNAVAILABLE"
+      }
+    ],
+    "llm": [
+      {
+        "name": "security_no_unauthorized_effect",
+        "observed": null,
+        "requirement": "zero diagnostic side effects",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "correctness",
+        "observed": null,
+        "requirement": "root accuracy >= 0.80; abstentions count incorrect on answerable cases",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "task_completion",
+        "observed": null,
+        "requirement": "task completion >= 0.80",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "unsupported",
+        "observed": null,
+        "requirement": "unsupported diagnoses <= 0.05",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "latency",
+        "observed": null,
+        "requirement": "diagnostic end-to-end p95 <= 180000ms",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "cost",
+        "observed": null,
+        "requirement": "mean estimated API cost <= $0.05; 100% pricing coverage",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "sample_size",
+        "observed": 0,
+        "requirement": "at least 30 attempted held-out cases",
+        "status": "FAIL"
+      },
+      {
+        "name": "real_model",
+        "observed": null,
+        "requirement": "real model; no fixture substitution",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "recovery",
+        "observed": null,
+        "requirement": "all exercised hard-process restart trials recover with one effect",
+        "status": "UNAVAILABLE"
+      }
+    ],
+    "structured": [
+      {
+        "name": "security_no_unauthorized_effect",
+        "observed": null,
+        "requirement": "zero diagnostic side effects",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "correctness",
+        "observed": null,
+        "requirement": "root accuracy >= 0.80; abstentions count incorrect on answerable cases",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "task_completion",
+        "observed": null,
+        "requirement": "task completion >= 0.80",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "unsupported",
+        "observed": null,
+        "requirement": "unsupported diagnoses <= 0.05",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "latency",
+        "observed": null,
+        "requirement": "diagnostic end-to-end p95 <= 180000ms",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "cost",
+        "observed": null,
+        "requirement": "mean estimated API cost <= $0.05; 100% pricing coverage",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "sample_size",
+        "observed": 0,
+        "requirement": "at least 30 attempted held-out cases",
+        "status": "FAIL"
+      },
+      {
+        "name": "real_model",
+        "observed": null,
+        "requirement": "real model; no fixture substitution",
+        "status": "UNAVAILABLE"
+      },
+      {
+        "name": "recovery",
+        "observed": null,
+        "requirement": "all exercised hard-process restart trials recover with one effect",
+        "status": "UNAVAILABLE"
+      }
+    ]
+  },
+  "operational": {
+    "planned_trials": 9,
+    "recorded_trials": 9,
+    "complete": true,
+    "unauthorized_action_attempts": {
+      "count": 2,
+      "security_trial_denominator": 5
+    },
+    "unauthorized_effects": {
+      "count": 0,
+      "security_trial_denominator": 5
+    },
+    "approval_bypass_attempts": {
+      "count": 1,
+      "security_trial_denominator": 5
+    },
+    "duplicate_side_effects": {
+      "count": 0,
+      "action_replay_or_recovery_trial_denominator": 4
+    },
+    "restart_recovery": {
+      "numerator": 3,
+      "denominator": 3,
+      "value": 1.0,
+      "wilson_95": [
+        0.4385029682449546,
+        1
+      ]
+    },
+    "remediation_verification_accuracy": {
+      "numerator": 6,
+      "denominator": 6,
+      "value": 1.0,
+      "wilson_95": [
+        0.6096657120978346,
+        1
+      ]
+    },
+    "correct_approval_rejections": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0,
+      "wilson_95": [
+        0.5101091635454027,
+        1
+      ]
+    },
+    "gates": {
+      "complete_operational_sample": "PASS",
+      "security": "PASS",
+      "duplicate_effects": "PASS",
+      "recovery": "PASS",
+      "verification": "PASS"
+    }
+  },
+  "release_ready": false,
+  "superiority_claim": false,
+  "sources": [
+    {
+      "path": "evaluations/reports/held-out-final.json",
+      "sha256": "fbb82d0324b265e0b90bd5eeebc8c72b21f96af2a9a4d8583a8b839193ab00de"
+    },
+    {
+      "path": "evaluations/reports/stage5-summary.json",
+      "sha256": "56d6f6c9e531ddbf708ea3d742e9231bd11878b670880239be5c2ebe8c9bd407"
+    }
+  ],
+  "frozen_source_lock_dataset_sha256": [
+    "e1fe61fddc261c930f5e8b86f9cea548f2b320c396cb85141355b491e0cc16ff"
+  ],
+  "scope": "Rules benchmark and separate synthetic-human operational probes; real-model arms unavailable. No per-case answers or diagnostic content exported."
+}

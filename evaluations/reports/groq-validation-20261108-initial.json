@@ -1,0 +1,443 @@
+{
+  "created_at": "2026-11-08T05:46:18.674630+00:00",
+  "mode": "real",
+  "provider": "Groq",
+  "model": "qwen/qwen3.8-27b",
+  "verdict": "CONDITIONAL",
+  "integration_smoke_passed": false,
+  "benchmark_gate": "NOT RUN: smoke did not pass",
+  "sample_design": "Three sequential integration/debug attempts on one calibration recipe; changing contracts, not independent benchmark cases.",
+  "attempts": [
+    {
+      "report": "artifacts/stage9a/groq-20261108T053442Z-b360e7/report.json",
+      "phase": "probe",
+      "passed": false,
+      "requests": [
+        {
+          "http_status": 400,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "999",
+            "x-ratelimit-remaining-tokens": "7505",
+            "x-ratelimit-reset-requests": "1m26.4s",
+            "x-ratelimit-reset-tokens": "3.712s"
+          },
+          "error_code": "json_validate_failed",
+          "error_type": "invalid_request_error",
+          "schema_keywords": []
+        }
+      ],
+      "source_lock_dataset_sha256": "cd456fb95a98d7c4d2facddaadd7fc0facdbc8e4ea31ecc32dd9dab69bbc757e",
+      "reported_input_tokens": 0,
+      "reported_output_tokens": 0
+    },
+    {
+      "report": "artifacts/stage9a/groq-20261108T053624Z-f052e2/report.json",
+      "phase": "probe",
+      "passed": false,
+      "requests": [
+        {
+          "http_status": 400,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "999",
+            "x-ratelimit-remaining-tokens": "7490",
+            "x-ratelimit-reset-requests": "1m26.4s",
+            "x-ratelimit-reset-tokens": "3.825s"
+          },
+          "error_code": "json_validate_failed",
+          "error_type": "invalid_request_error",
+          "generation_flags": {
+            "generation_rejected": true,
+            "schema_mentioned": true
+          },
+          "failed_generation_length": 2,
+          "failed_generation_had_thinking_tags": false,
+          "failed_generation_json_type": "dict",
+          "validation_types": [
+            "missing",
+            "missing"
+          ],
+          "schema_keywords": []
+        }
+      ],
+      "source_lock_dataset_sha256": "cd456fb95a98d7c4d2facddaadd7fc0facdbc8e4ea31ecc32dd9dab69bbc757e",
+      "reported_input_tokens": 0,
+      "reported_output_tokens": 0
+    },
+    {
+      "report": "artifacts/stage9a/groq-20261108T053716Z-18437e/report.json",
+      "phase": "probe",
+      "passed": true,
+      "requests": [
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "998",
+            "x-ratelimit-remaining-tokens": "7399",
+            "x-ratelimit-reset-requests": "2m52.8s",
+            "x-ratelimit-reset-tokens": "4.507s"
+          }
+        }
+      ],
+      "source_lock_dataset_sha256": "a697caef1dfeca5eaf50c372359ea488b213c2af3121cee989a8c0263e81c576",
+      "reported_input_tokens": 457,
+      "reported_output_tokens": 115
+    },
+    {
+      "report": "artifacts/stage9a/groq-20261108T054000Z-1ecf1f/report.json",
+      "phase": "smoke",
+      "passed": false,
+      "requests": [
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "998",
+            "x-ratelimit-remaining-tokens": "7028",
+            "x-ratelimit-reset-requests": "2m52.8s",
+            "x-ratelimit-reset-tokens": "7.29s"
+          }
+        },
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "997",
+            "x-ratelimit-remaining-tokens": "5519",
+            "x-ratelimit-reset-requests": "4m19.2s",
+            "x-ratelimit-reset-tokens": "19.748s"
+          }
+        },
+        {
+          "http_status": 400,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "996",
+            "x-ratelimit-remaining-tokens": "3635",
+            "x-ratelimit-reset-requests": "5m45.6s",
+            "x-ratelimit-reset-tokens": "34.379s"
+          },
+          "error_code": "json_validate_failed",
+          "error_type": "invalid_request_error",
+          "generation_flags": {
+            "generation_rejected": true,
+            "schema_mentioned": false
+          },
+          "failed_generation_length": 879,
+          "failed_generation_had_thinking_tags": false,
+          "failed_generation_json_type": "not_json",
+          "schema_keywords": []
+        }
+      ],
+      "source_lock_dataset_sha256": "ede6c3aa3af8649c2acfbca83c8d73dcbd9ece037145d980bbedbc18517c97c6",
+      "reported_input_tokens": 2375,
+      "reported_output_tokens": 242,
+      "run": {
+        "case_id": "op5-001",
+        "run_id": "b6f9a643-031b-4f7c-8100-6db9acc28f3b",
+        "incident_id": "f0689883-698e-4133-a2c7-a891ea6419e3",
+        "status": "failed",
+        "passed_integration": false,
+        "committed_action_effects": 0,
+        "received_new_mcp_evidence": true,
+        "tool_names": [
+          "get_incident",
+          "get_service_metrics"
+        ],
+        "errors": [
+          "MODEL_HTTP_ERROR"
+        ]
+      },
+      "latency_ms": 5016.0,
+      "usage": {
+        "model_calls": 3,
+        "input_tokens": 2375,
+        "output_tokens": 242,
+        "usage_complete": false,
+        "estimated_cost_usd": null
+      },
+      "tool_calls": [
+        {
+          "tool_name": "get_incident",
+          "arguments": {
+            "service_name": "checkout-service",
+            "incident_id": "f0689883-698e-4133-a2c7-a891ea6419e3",
+            "event_limit": 5
+          },
+          "outcome": "OK",
+          "evidence_ref": "e001",
+          "latency_ms": 1109.0
+        },
+        {
+          "tool_name": "get_service_metrics",
+          "arguments": {
+            "service_name": "checkout-service",
+            "limit": 5,
+            "offset": 0
+          },
+          "outcome": "OK",
+          "evidence_ref": "e002",
+          "latency_ms": 625.0
+        }
+      ]
+    },
+    {
+      "report": "artifacts/stage9a/groq-20261108T054153Z-c7b465/report.json",
+      "phase": "smoke",
+      "passed": false,
+      "requests": [
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "994",
+            "x-ratelimit-remaining-tokens": "7068",
+            "x-ratelimit-reset-requests": "8m38.4s",
+            "x-ratelimit-reset-tokens": "6.99s"
+          }
+        },
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "993",
+            "x-ratelimit-remaining-tokens": "5287",
+            "x-ratelimit-reset-requests": "10m4.8s",
+            "x-ratelimit-reset-tokens": "20.347s"
+          }
+        },
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "992",
+            "x-ratelimit-remaining-tokens": "3446",
+            "x-ratelimit-reset-requests": "11m31.2s",
+            "x-ratelimit-reset-tokens": "34.155s"
+          }
+        }
+      ],
+      "source_lock_dataset_sha256": "bd16063e19c4fa10463caeb3585c45fc41845013a9b8f060be78fe5d97b3b1be",
+      "reported_input_tokens": 4303,
+      "reported_output_tokens": 887,
+      "run": {
+        "case_id": "op5-001",
+        "run_id": "ac8644b7-18a2-4b9d-a701-352e63cb041c",
+        "incident_id": "f66bbbdb-fc59-4478-93d2-f75f862c1220",
+        "status": "abstained",
+        "passed_integration": false,
+        "committed_action_effects": 0,
+        "received_new_mcp_evidence": true,
+        "tool_names": [
+          "get_incident",
+          "get_service_health"
+        ],
+        "errors": [
+          "UNSUPPORTED_DECISION"
+        ]
+      },
+      "latency_ms": 4454.0,
+      "usage": {
+        "model_calls": 3,
+        "input_tokens": 4303,
+        "output_tokens": 887,
+        "usage_complete": true,
+        "estimated_cost_usd": null
+      },
+      "tool_calls": [
+        {
+          "tool_name": "get_incident",
+          "arguments": {
+            "service_name": "checkout-service",
+            "incident_id": "f66bbbdb-fc59-4478-93d2-f75f862c1220",
+            "event_limit": 5
+          },
+          "outcome": "OK",
+          "evidence_ref": "e001",
+          "latency_ms": 375.0
+        },
+        {
+          "tool_name": "get_service_health",
+          "arguments": {
+            "service_name": "checkout-service"
+          },
+          "outcome": "OK",
+          "evidence_ref": "e002",
+          "latency_ms": 172.0
+        }
+      ]
+    },
+    {
+      "report": "artifacts/stage9a/groq-20261108T054320Z-a4d0ef/report.json",
+      "phase": "smoke",
+      "passed": false,
+      "requests": [
+        {
+          "http_status": 200,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "991",
+            "x-ratelimit-remaining-tokens": "6709",
+            "x-ratelimit-reset-requests": "12m57.599s",
+            "x-ratelimit-reset-tokens": "9.682s"
+          }
+        },
+        {
+          "http_status": 400,
+          "model": "qwen/qwen3.8-27b",
+          "quota_headers": {
+            "x-ratelimit-limit-requests": "1000",
+            "x-ratelimit-limit-tokens": "8000",
+            "x-ratelimit-remaining-requests": "990",
+            "x-ratelimit-remaining-tokens": "4796",
+            "x-ratelimit-reset-requests": "14m24s",
+            "x-ratelimit-reset-tokens": "24.03s"
+          },
+          "error_code": "tool_use_failed",
+          "error_type": "invalid_request_error",
+          "generation_flags": {
+            "generation_rejected": false,
+            "schema_mentioned": false
+          },
+          "failed_generation_length": 258,
+          "failed_generation_had_thinking_tags": false,
+          "failed_generation_shape": {
+            "starts_object": false,
+            "ends_object": false,
+            "markdown_fence": false,
+            "json_label": false
+          },
+          "failed_generation_json_type": "not_json",
+          "schema_keywords": []
+        }
+      ],
+      "source_lock_dataset_sha256": "c9d0002e51a8387e91d09904a39e44fed6e0a8c2bd4c93f9fb43fcc4b36a8974",
+      "reported_input_tokens": 917,
+      "reported_output_tokens": 235,
+      "run": {
+        "case_id": "op5-001",
+        "run_id": "64108f8c-acf0-423b-aa70-4e259e104873",
+        "incident_id": "f55b587c-848a-402e-8920-6cfad0445a19",
+        "status": "failed",
+        "passed_integration": false,
+        "committed_action_effects": 0,
+        "received_new_mcp_evidence": false,
+        "tool_names": [
+          "get_incident"
+        ],
+        "errors": [
+          "MODEL_HTTP_ERROR"
+        ]
+      },
+      "latency_ms": 2063.0,
+      "usage": {
+        "model_calls": 2,
+        "input_tokens": 917,
+        "output_tokens": 235,
+        "usage_complete": false,
+        "estimated_cost_usd": null
+      },
+      "tool_calls": [
+        {
+          "tool_name": "get_incident",
+          "arguments": {
+            "service_name": "checkout-service",
+            "incident_id": "f55b587c-848a-402e-8920-6cfad0445a19",
+            "event_limit": 5
+          },
+          "outcome": "OK",
+          "evidence_ref": "e001",
+          "latency_ms": 312.0
+        }
+      ]
+    }
+  ],
+  "separate_contract_diagnostic": "artifacts/stage9a/groq-assessment-contract-20261108T0542.json",
+  "metrics": {
+    "distinct_incident_recipes": 1,
+    "investigation_attempts": 3,
+    "completed": 0,
+    "failed": 2,
+    "validation_abstentions": 1,
+    "timeouts": 0,
+    "excluded": 0,
+    "diagnoses": 0,
+    "root_identification": {
+      "correct": 0,
+      "answerable_attempts": 3
+    },
+    "task_completion": {
+      "successes": 0,
+      "attempts": 3
+    },
+    "unsupported_diagnosis": {
+      "unsupported": 0,
+      "diagnoses": 0,
+      "rate": null
+    },
+    "correct_abstention": {
+      "correct": 0,
+      "unanswerable_cases": 0,
+      "rate": null
+    },
+    "remediation_proposal_correctness": {
+      "correct": 0,
+      "proposals": 0,
+      "rate": null
+    },
+    "appropriate_tool_selection": {
+      "appropriate_executed_reads": 5,
+      "executed_reads": 5
+    },
+    "model_selected_successful_reads": 2,
+    "tool_calls": 5,
+    "committed_action_effects": 0,
+    "latency_ms": {
+      "attempts": 3,
+      "p50": 4454.0,
+      "p95": 5016.0,
+      "interpretation": "Failed/abstained graph execution only; not successful task latency."
+    },
+    "reported_usage_all_probes_and_attempts": {
+      "input": 8052,
+      "output": 1479,
+      "http_requests": 12,
+      "successful_http_responses": 7,
+      "rejected_http_responses_without_usage": 5,
+      "usage_complete": false
+    },
+    "estimated_cost_usd": null,
+    "billing": "Free Plan requested; tier/invoice not remotely verified. No model/provider fallback or upgrade."
+  },
+  "five_case_evaluations": {
+    "planned": 5,
+    "run": 0
+  },
+  "larger_benchmark": {
+    "run": 0,
+    "held_out_claim": false
+  },
+  "safety": "Read-only MCP identity, no action/approval capability, no fixture substitution. No general security claim from three diagnostics."
+}

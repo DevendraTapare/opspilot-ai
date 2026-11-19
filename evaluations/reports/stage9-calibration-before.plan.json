@@ -1,0 +1,37 @@
+{
+  "source_lock_dataset_sha256": "108f4179e319ed08300c04640c5fb8f9919302f2d2ab23ab2fbca15b9e7d925c",
+  "split": "calibration",
+  "case_ids": [
+    "op5-001",
+    "op5-007",
+    "op5-013",
+    "op5-019",
+    "op5-025",
+    "op5-031",
+    "op5-037",
+    "op5-043",
+    "op5-049",
+    "op5-055",
+    "op5-061",
+    "op5-067",
+    "op5-073",
+    "op5-079",
+    "op5-085",
+    "op5-091",
+    "op5-097",
+    "op5-103",
+    "op5-109",
+    "op5-115"
+  ],
+  "arms": [
+    "baseline"
+  ],
+  "limits": {
+    "tools": 8,
+    "model_calls": 14,
+    "seconds": 180,
+    "per_call_seconds": 15
+  },
+  "created_at": "2026-11-07T13:14:08.002003+00:00",
+  "fixture_smoke": false
+}

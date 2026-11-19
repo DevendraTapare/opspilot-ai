@@ -1,0 +1,281 @@
+[
+  {
+    "number": 1,
+    "model": "openai/gpt-oss-20b",
+    "phase": "probe:A",
+    "http_status": 200,
+    "reserved_usd": 0.0005579249999999999,
+    "cost_complete": true,
+    "prompt_sha256": "c4ee087b791b6cf96e376fab303109db9d527755091d0fddd7d3d7d6e56240b8",
+    "roles": [
+      "user"
+    ],
+    "tool_count": 0,
+    "structured": true,
+    "settings": {
+      "reasoning_effort": "medium",
+      "include_reasoning": false,
+      "max_tokens": 1600
+    },
+    "schema_sha256": "61538608539553376776c4f0d3a4a9a876a4bd4c01def7ebaabe93fb71078494",
+    "quota_headers": {
+      "x-ratelimit-limit-requests": "1000",
+      "x-ratelimit-limit-tokens": "8000",
+      "x-ratelimit-remaining-requests": "999",
+      "x-ratelimit-remaining-tokens": "7673",
+      "x-ratelimit-reset-requests": "1m26.4s",
+      "x-ratelimit-reset-tokens": "2.452s"
+    },
+    "finish_reason": "stop",
+    "response_model": "openai/gpt-oss-20b",
+    "input_tokens": 177,
+    "output_tokens": 50,
+    "estimated_usd": 2.8275e-05,
+    "latency_ms": 328.0,
+    "diagnostic": {
+      "category": "response_extraction",
+      "outcome": "received",
+      "http_status": 200,
+      "request_id": "req_01m7s00qe0e7ybqp59rcnvpdg5",
+      "completion_id": "chatcmpl-45d89750-2b37-45d0-83d6-6d9941bfcbef",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "input_tokens": 177,
+      "output_tokens": 50,
+      "reasoning_tokens": 32,
+      "response_bytes": 643,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "total": 328.0
+      }
+    }
+  },
+  {
+    "number": 2,
+    "model": "openai/gpt-oss-20b",
+    "phase": "probe:B",
+    "http_status": 200,
+    "reserved_usd": 0.00121275,
+    "cost_complete": true,
+    "prompt_sha256": "26ebce617c58582d3d96e3745bb87f19f75a346e36da952c1bf7b742f4296913",
+    "roles": [
+      "system",
+      "user"
+    ],
+    "tool_count": 0,
+    "structured": true,
+    "settings": {
+      "reasoning_effort": "medium",
+      "include_reasoning": false,
+      "max_tokens": 1600
+    },
+    "schema_sha256": "378f26661efdedc02441aed49a682b386d29dc32f8a6d3b78d7b9c262f10802b",
+    "quota_headers": {
+      "x-ratelimit-limit-requests": "1000",
+      "x-ratelimit-limit-tokens": "8000",
+      "x-ratelimit-remaining-requests": "998",
+      "x-ratelimit-remaining-tokens": "5137",
+      "x-ratelimit-reset-requests": "2m52.8s",
+      "x-ratelimit-reset-tokens": "21.472s"
+    },
+    "finish_reason": "stop",
+    "response_model": "openai/gpt-oss-20b",
+    "input_tokens": 2711,
+    "output_tokens": 464,
+    "estimated_usd": 0.000342525,
+    "latency_ms": 891.0,
+    "diagnostic": {
+      "category": "response_extraction",
+      "outcome": "received",
+      "http_status": 200,
+      "request_id": "req_01m7s0130jeyabvwrbsr78wrcx",
+      "completion_id": "chatcmpl-0c5e9113-453b-4483-ae3b-e54ab54ea10a",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "input_tokens": 2711,
+      "output_tokens": 464,
+      "reasoning_tokens": 258,
+      "response_bytes": 1574,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "total": 891.0
+      }
+    }
+  },
+  {
+    "number": 3,
+    "model": "openai/gpt-oss-20b",
+    "phase": "probe:C",
+    "http_status": 400,
+    "reserved_usd": 0.001934625,
+    "cost_complete": false,
+    "prompt_sha256": "06d057618dbc567376e4d1a89d7a599797b6c5562753be319847505224f6a32b",
+    "roles": [
+      "system",
+      "user"
+    ],
+    "tool_count": 0,
+    "structured": true,
+    "settings": {
+      "reasoning_effort": "medium",
+      "include_reasoning": false,
+      "max_tokens": 1600
+    },
+    "schema_sha256": "a947f4e34f68b2fdc19b4232f5be37aa6f1c11b858723ccc79e149b9225c2a90",
+    "quota_headers": {
+      "x-ratelimit-limit-requests": "1000",
+      "x-ratelimit-limit-tokens": "8000",
+      "x-ratelimit-remaining-requests": "997",
+      "x-ratelimit-remaining-tokens": "1021",
+      "x-ratelimit-reset-requests": "4m19.2s",
+      "x-ratelimit-reset-tokens": "52.342s"
+    },
+    "provider_error_code": "json_validate_failed",
+    "provider_error_type": "invalid_request_error",
+    "error_origin": "provider",
+    "latency_ms": 2656.0,
+    "diagnostic": {
+      "category": "provider_schema_enforcement",
+      "outcome": "rejected",
+      "http_status": 400,
+      "request_id": "req_01m7s01exjen2abxaz9wh1vhre",
+      "completion_id": null,
+      "finish_reason": null,
+      "provider_error_code": "json_validate_failed",
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "response_bytes": 202,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": {
+        "chars": 0,
+        "category": "response_parsing",
+        "validation_errors": [
+          {
+            "type": "json_invalid",
+            "path": []
+          }
+        ]
+      },
+      "timings_ms": {
+        "total": 2656.0
+      }
+    }
+  },
+  {
+    "number": 4,
+    "model": "openai/gpt-oss-20b",
+    "phase": "probe:D-tool",
+    "http_status": 200,
+    "reserved_usd": 0.000756675,
+    "cost_complete": true,
+    "prompt_sha256": "cd388503ed889cb14cc49aadfeb49131bf8d5fab184e70f40ca01b14131c8c13",
+    "roles": [
+      "system",
+      "user"
+    ],
+    "tool_count": 1,
+    "structured": false,
+    "settings": {
+      "reasoning_effort": "medium",
+      "include_reasoning": false,
+      "max_tokens": 1600,
+      "parallel_tool_calls": false
+    },
+    "schema_sha256": "f2dba6b2b744b85421ac82acfbfa6c22f4f77fb1385bc3973f3bc6c51b5808ee",
+    "quota_headers": {
+      "x-ratelimit-limit-requests": "1000",
+      "x-ratelimit-limit-tokens": "8000",
+      "x-ratelimit-remaining-requests": "996",
+      "x-ratelimit-remaining-tokens": "1573",
+      "x-ratelimit-reset-requests": "5m45.6s",
+      "x-ratelimit-reset-tokens": "48.202s"
+    },
+    "finish_reason": "tool_calls",
+    "response_model": "openai/gpt-oss-20b",
+    "input_tokens": 563,
+    "output_tokens": 41,
+    "estimated_usd": 5.4525e-05,
+    "latency_ms": 515.0,
+    "diagnostic": {
+      "category": "response_extraction",
+      "outcome": "received",
+      "http_status": 200,
+      "request_id": "req_01m7s01tfyewp8bhvg1r10gbxc",
+      "completion_id": "chatcmpl-8ea3a467-2fd3-4782-b640-07a587f015ae",
+      "finish_reason": "tool_calls",
+      "provider_error_code": null,
+      "input_tokens": 563,
+      "output_tokens": 41,
+      "reasoning_tokens": 15,
+      "response_bytes": 792,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "total": 515.0
+      }
+    }
+  },
+  {
+    "number": 5,
+    "model": "openai/gpt-oss-20b",
+    "phase": "probe:D",
+    "http_status": 429,
+    "reserved_usd": 0.00210045,
+    "cost_complete": false,
+    "prompt_sha256": "15c59a02c127ae8b3c65f274d9487d35d09b1febd83d12f18a171e6b50c8d0ae",
+    "roles": [
+      "system",
+      "user",
+      "assistant",
+      "tool",
+      "user"
+    ],
+    "tool_count": 0,
+    "structured": true,
+    "settings": {
+      "reasoning_effort": "medium",
+      "include_reasoning": false,
+      "max_tokens": 1600
+    },
+    "schema_sha256": "1dccbdd50da6f646444ce477a9d1a0b9589d5d69a48c780e07207947076690f3",
+    "quota_headers": {
+      "retry-after": "19",
+      "x-ratelimit-limit-requests": "1000",
+      "x-ratelimit-limit-tokens": "8000",
+      "x-ratelimit-remaining-requests": "996",
+      "x-ratelimit-remaining-tokens": "3608",
+      "x-ratelimit-reset-requests": "5m45.6s",
+      "x-ratelimit-reset-tokens": "32.94s"
+    },
+    "provider_error_code": "rate_limit_exceeded",
+    "provider_error_type": "tokens",
+    "error_origin": "provider",
+    "latency_ms": 187.0,
+    "diagnostic": {
+      "category": "provider_request_rejected",
+      "outcome": "rejected",
+      "http_status": 429,
+      "request_id": "req_01m7s0269qep291p01hw9h3dfg",
+      "completion_id": null,
+      "finish_reason": null,
+      "provider_error_code": "rate_limit_exceeded",
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "response_bytes": 379,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "total": 187.0
+      }
+    }
+  }
+]

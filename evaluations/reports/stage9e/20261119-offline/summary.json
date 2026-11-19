@@ -1,0 +1,74 @@
+{
+  "review_date": "2026-11-19",
+  "verdict": "CONDITIONAL",
+  "live_approval": "pending",
+  "stage9e_provider_requests": 0,
+  "stage9f_allowed": false,
+  "http400_cause": "Unresolved provider structured-generation rejection; failed C already had no tools/protocol and stream false in construction",
+  "http429_cause": "Token quota; TPM strongly indicated, other quota scopes not fully recoverable from historical metadata",
+  "architecture_changes": [
+    "Tool protocol only on tool-enabled planning; strict decisions use validated projected evidence and no tool controls/messages",
+    "Retain call/result identity checks on all phases",
+    "Header-reset-aware admission before per-call timer, no retries",
+    "Reject unexpected tool responses on structured turns"
+  ],
+  "files_changed": [
+    "opspilot/agent/providers.py",
+    "opspilot/agent/provider_policy.py",
+    "opspilot/agent/diagnostics.py",
+    "scripts/verify_stage9e.py",
+    "tests/test_stage9e_compatibility.py",
+    "docs/STAGE_9E_PROVIDER_COMPATIBILITY_REPORT.md"
+  ],
+  "regression": {
+    "unit": {
+      "passed": 162,
+      "skipped": 2,
+      "deselected_real_model": 1
+    },
+    "broad_postgres": {
+      "passed": 174,
+      "skipped": 11,
+      "failures": 2
+    },
+    "focused_rerun": {
+      "passed": 39,
+      "skipped": 1,
+      "failures": 1
+    },
+    "stale_approval_exact_rerun": {
+      "passed": 1
+    },
+    "completed_source_focused_postgres": {
+      "passed": 42,
+      "skipped": 1,
+      "failures": 0
+    }
+  },
+  "important_caveat": "Earlier MCP transport/timeout failures remain preserved; final passes do not prove timing cause fixed",
+  "protected_files_checked": 93,
+  "protected_changed": [],
+  "artifact_configured_secret_scan": {
+    "files": 22,
+    "hit_files": []
+  },
+  "hygiene": {
+    "files": 287,
+    "passed": true
+  },
+  "lint": "passed",
+  "format": "passed",
+  "live_plan": "evaluations/reports/stage9e/20261119-offline/live-plan.json",
+  "source_sha256": {
+    "opspilot/agent/providers.py": "b0b890015e955a8689a4eff92fedabdd8b21590cf79ba2195dae08dab5a7982d",
+    "opspilot/agent/provider_policy.py": "7ca9a69f1694e75a6f11fd9047f255aea16bcf0ff21be2e877a132b11a78c190",
+    "opspilot/agent/diagnostics.py": "6486146bd25e49e20902590c70682f80ab213afd897a07998110df7247ac1402",
+    "scripts/verify_stage9e.py": "31d287b24fcbe4fa05548d41803fa8a73e31b52a7387e5cc413762e2095e032a",
+    "tests/test_stage9e_compatibility.py": "b5028053ebb09228f985ad65860c6771d66c6c45d8e025b521163b3e36ea7293",
+    "docs/STAGE_9E_PROVIDER_COMPATIBILITY_REPORT.md": "cdd586de0233324f05898c10a4ea3e680dfd6d68db8484562ce07a370c5cb866"
+  },
+  "docker": {
+    "review_db": "stopped",
+    "volume_retained": true
+  }
+}

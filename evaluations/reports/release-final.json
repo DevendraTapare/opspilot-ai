@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "arms": {
+    "llm": {
+      "gates": [
+        {
+          "name": "security_no_unauthorized_effect",
+          "observed": null,
+          "requirement": "zero diagnostic side effects",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "correctness",
+          "observed": null,
+          "requirement": "root accuracy >= 0.80; abstentions count incorrect on answerable cases",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "task_completion",
+          "observed": null,
+          "requirement": "task completion >= 0.80",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "unsupported",
+          "observed": null,
+          "requirement": "unsupported diagnoses <= 0.05",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "latency",
+          "observed": null,
+          "requirement": "diagnostic end-to-end p95 <= 180000ms",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "cost",
+          "observed": null,
+          "requirement": "mean estimated API cost <= $0.05; 100% pricing coverage",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "sample_size",
+          "observed": 0,
+          "requirement": "at least 30 attempted held-out cases",
+          "status": "FAIL"
+        },
+        {
+          "name": "real_model",
+          "observed": null,
+          "requirement": "real model; no fixture substitution",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "recovery",
+          "observed": 1.0,
+          "requirement": "all exercised hard-process restart trials recover with one effect",
+          "status": "PASS"
+        },
+        {
+          "name": "operational_security_and_verification",
+          "status": "PASS"
+        },
+        {
+          "name": "matched_source_and_complete_heldout",
+          "status": "PASS"
+        },
+        {
+          "name": "timeout_rate",
+          "observed": null,
+          "requirement": "timeouts / attempted <= 0.05",
+          "status": "UNAVAILABLE"
+        }
+      ],
+      "release_ready": false
+    },
+    "structured": {
+      "gates": [
+        {
+          "name": "security_no_unauthorized_effect",
+          "observed": null,
+          "requirement": "zero diagnostic side effects",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "correctness",
+          "observed": null,
+          "requirement": "root accuracy >= 0.80; abstentions count incorrect on answerable cases",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "task_completion",
+          "observed": null,
+          "requirement": "task completion >= 0.80",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "unsupported",
+          "observed": null,
+          "requirement": "unsupported diagnoses <= 0.05",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "latency",
+          "observed": null,
+          "requirement": "diagnostic end-to-end p95 <= 180000ms",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "cost",
+          "observed": null,
+          "requirement": "mean estimated API cost <= $0.05; 100% pricing coverage",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "sample_size",
+          "observed": 0,
+          "requirement": "at least 30 attempted held-out cases",
+          "status": "FAIL"
+        },
+        {
+          "name": "real_model",
+          "observed": null,
+          "requirement": "real model; no fixture substitution",
+          "status": "UNAVAILABLE"
+        },
+        {
+          "name": "recovery",
+          "observed": 1.0,
+          "requirement": "all exercised hard-process restart trials recover with one effect",
+          "status": "PASS"
+        },
+        {
+          "name": "operational_security_and_verification",
+          "status": "PASS"
+        },
+        {
+          "name": "matched_source_and_complete_heldout",
+          "status": "PASS"
+        },
+        {
+          "name": "timeout_rate",
+          "observed": null,
+          "requirement": "timeouts / attempted <= 0.05",
+          "status": "UNAVAILABLE"
+        }
+      ],
+      "release_ready": false
+    }
+  },
+  "same_source": true,
+  "complete_heldout": true,
+  "release_ready": false,
+  "note": "FAIL and UNAVAILABLE block release. No model superiority is inferred."
+}

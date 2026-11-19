@@ -1,0 +1,405 @@
+[
+  {
+    "stage": "triage",
+    "received_evidence_ids": [
+      "e001"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2k4dve38arak328xvfg00",
+      "completion_id": "chatcmpl-fa8579c7-6f4c-4d5d-af53-a8eb0012f612",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 999,
+      "quota_remaining_tokens_per_minute": 6798,
+      "quota_reset_tokens_seconds": 9.015,
+      "input_tokens": 979,
+      "output_tokens": 187,
+      "reasoning_tokens": 90,
+      "response_bytes": 1031,
+      "content_chars": 397,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 703.0,
+        "response_body": 703.0,
+        "total": 703.0
+      }
+    }
+  },
+  {
+    "stage": "investigation_planning",
+    "received_evidence_ids": [
+      "e001"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2kg4he6y9n7vdqdwspnwp",
+      "completion_id": "chatcmpl-5319fbd7-398a-4dbf-96e5-fb3037aee942",
+      "finish_reason": "tool_calls",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 998,
+      "quota_remaining_tokens_per_minute": 6557,
+      "quota_reset_tokens_seconds": 10.822,
+      "input_tokens": 1256,
+      "output_tokens": 223,
+      "reasoning_tokens": 123,
+      "response_bytes": 1112,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 563.0,
+        "response_body": 563.0,
+        "total": 563.0
+      }
+    }
+  },
+  {
+    "stage": "evidence_assessment",
+    "received_evidence_ids": [
+      "e001",
+      "e002"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2kw79ede8jq9qzed7pht4",
+      "completion_id": "chatcmpl-2c113402-a6c7-4697-b37d-45b680cacd7c",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 997,
+      "quota_remaining_tokens_per_minute": 5603,
+      "quota_reset_tokens_seconds": 17.977,
+      "input_tokens": 2185,
+      "output_tokens": 661,
+      "reasoning_tokens": 451,
+      "response_bytes": 1620,
+      "content_chars": 948,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 1234.0,
+        "response_body": 1234.0,
+        "total": 1234.0
+      }
+    }
+  },
+  {
+    "stage": "investigation_planning",
+    "received_evidence_ids": [
+      "e001",
+      "e002"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2mfzsext83g0dqs8d216t",
+      "completion_id": "chatcmpl-80dd117a-1c40-4be9-a81a-6b80fc6cad91",
+      "finish_reason": "tool_calls",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 996,
+      "quota_remaining_tokens_per_minute": 4679,
+      "quota_reset_tokens_seconds": 24.907,
+      "input_tokens": 2511,
+      "output_tokens": 218,
+      "reasoning_tokens": 105,
+      "response_bytes": 1164,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 672.0,
+        "response_body": 672.0,
+        "total": 672.0
+      }
+    }
+  },
+  {
+    "stage": "evidence_assessment",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2nb5se749r9xsgxv8fbab",
+      "completion_id": "chatcmpl-9828cbc8-a5fa-4bd2-be51-61e2abe279b1",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 995,
+      "quota_remaining_tokens_per_minute": 3474,
+      "quota_reset_tokens_seconds": 33.945,
+      "input_tokens": 3865,
+      "output_tokens": 426,
+      "reasoning_tokens": 217,
+      "response_bytes": 1618,
+      "content_chars": 944,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 2437.0,
+        "response_body": 2437.0,
+        "total": 2453.0
+      }
+    }
+  },
+  {
+    "stage": "investigation_planning",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2pghgex7999pfzqyg667j",
+      "completion_id": "chatcmpl-e93cd3e6-ed7b-4545-8fe9-34a702f3e83c",
+      "finish_reason": "tool_calls",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 994,
+      "quota_remaining_tokens_per_minute": 2427,
+      "quota_reset_tokens_seconds": 41.797,
+      "input_tokens": 5350,
+      "output_tokens": 224,
+      "reasoning_tokens": 108,
+      "response_bytes": 1179,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 828.0,
+        "response_body": 828.0,
+        "total": 828.0
+      }
+    }
+  },
+  {
+    "stage": "evidence_assessment",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2qvkse5dse7mcwb8j48ee",
+      "completion_id": "chatcmpl-a9a8e0a0-e87e-4516-8e63-f18671e805ef",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 993,
+      "quota_remaining_tokens_per_minute": 3399,
+      "quota_reset_tokens_seconds": 34.507,
+      "input_tokens": 4377,
+      "output_tokens": 632,
+      "reasoning_tokens": 376,
+      "response_bytes": 1871,
+      "content_chars": 1196,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 1344.0,
+        "response_body": 1344.0,
+        "total": 1360.0
+      }
+    }
+  },
+  {
+    "stage": "investigation_planning",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2rzk7eg297c91r8zkv2hg",
+      "completion_id": "chatcmpl-f8026abb-bd71-47d4-a981-71ccc6f96066",
+      "finish_reason": "tool_calls",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 992,
+      "quota_remaining_tokens_per_minute": 790,
+      "quota_reset_tokens_seconds": 54.075,
+      "input_tokens": 6481,
+      "output_tokens": 238,
+      "reasoning_tokens": 131,
+      "response_bytes": 1169,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 1109.0,
+        "response_body": 1109.0,
+        "total": 1109.0
+      }
+    }
+  },
+  {
+    "stage": "evidence_assessment",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004",
+      "e005"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2tpjbe4qr5cwmz0p6zb7n",
+      "completion_id": "chatcmpl-e007b4d0-0a06-48ca-b898-53baeea696e9",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 991,
+      "quota_remaining_tokens_per_minute": 3166,
+      "quota_reset_tokens_seconds": 36.254,
+      "input_tokens": 4605,
+      "output_tokens": 973,
+      "reasoning_tokens": 717,
+      "response_bytes": 1924,
+      "content_chars": 1196,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 4110.0,
+        "response_body": 4110.0,
+        "total": 4110.0
+      }
+    }
+  },
+  {
+    "stage": "investigation_planning",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004",
+      "e005"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2vz1wez3b8akwhv3987ge",
+      "completion_id": "chatcmpl-bf94fc8f-8f4d-47a4-96f9-77e468bd5037",
+      "finish_reason": "tool_calls",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 990,
+      "quota_remaining_tokens_per_minute": 474,
+      "quota_reset_tokens_seconds": 56.445,
+      "input_tokens": 6894,
+      "output_tokens": 440,
+      "reasoning_tokens": 325,
+      "response_bytes": 1174,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 1531.0,
+        "response_body": 1531.0,
+        "total": 1547.0
+      }
+    }
+  },
+  {
+    "stage": "evidence_assessment",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004",
+      "e005",
+      "e006"
+    ],
+    "diagnostic": {
+      "category": "schema_valid",
+      "outcome": "accepted_schema",
+      "http_status": 200,
+      "request_id": "req_01m7s2xrjtedmt109ccweqf03d",
+      "completion_id": "chatcmpl-fe6b7f90-4717-4b6e-876e-0d73587ddbeb",
+      "finish_reason": "stop",
+      "provider_error_code": null,
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 989,
+      "quota_remaining_tokens_per_minute": 2400,
+      "quota_reset_tokens_seconds": 42.0,
+      "input_tokens": 4939,
+      "output_tokens": 955,
+      "reasoning_tokens": 699,
+      "response_bytes": 1871,
+      "content_chars": 1196,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 2437.0,
+        "response_body": 2437.0,
+        "total": 2437.0
+      }
+    }
+  },
+  {
+    "stage": "investigation_planning",
+    "received_evidence_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004",
+      "e005",
+      "e006"
+    ],
+    "error_code": "MODEL_HTTP_ERROR",
+    "diagnostic": {
+      "category": "provider_request_rejected",
+      "outcome": "rejected",
+      "http_status": 413,
+      "request_id": "req_01m7s2z4xte84s2grx6jrp8bq3",
+      "completion_id": null,
+      "finish_reason": null,
+      "provider_error_code": "rate_limit_exceeded",
+      "quota_scope": null,
+      "quota_remaining_requests_per_day": 989,
+      "quota_remaining_tokens_per_minute": 8000,
+      "quota_reset_tokens_seconds": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "response_bytes": 384,
+      "content_chars": null,
+      "validation_errors": [],
+      "failed_generation": null,
+      "timings_ms": {
+        "response_headers": 79.0,
+        "response_body": 79.0,
+        "total": 79.0
+      }
+    }
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "version": "9d-1",
+  "model": "openai/gpt-oss-20b",
+  "provider": "groq",
+  "maximum_provider_requests": 19,
+  "maximum_output_tokens_per_call": 1600,
+  "maximum_request_bytes_with_reserve": 65000,
+  "maximum_reserved_usd": 0.15,
+  "worst_case_list_price_estimate_usd": 0.101745,
+  "price_per_million_input_output_usd": [
+    0.075,
+    0.3
+  ],
+  "phase_requests": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 2,
+    "E": 14
+  },
+  "automatic_retries": 0,
+  "request_interval_seconds": 12,
+  "call_timeout_seconds": 15,
+  "E_seconds": 180,
+  "E_max_read_tools": 8,
+  "reasoning_effort": "medium",
+  "temperature": 0.2,
+  "include_reasoning": false,
+  "calibration_case": "op5-001",
+  "held_out": false,
+  "early_stops": "401/403/429, reservation cap; E only if A-D all pass",
+  "actions": "disabled; no action grants, approvals or remediation calls",
+  "billing_caveat": "Application reservation ceiling, not a provider billing guarantee. Use account-side paid billing disabled/spend limit for a hard account cap. Missing usage retains full reservation; no model-list requests."
+}

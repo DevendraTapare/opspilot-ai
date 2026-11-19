@@ -1,0 +1,562 @@
+{
+  "request": {
+    "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+    "service_name": "checkout-service",
+    "goal": "Investigate this incident using operational evidence; abstain if inconclusive.",
+    "max_tool_calls": 8,
+    "max_model_calls": 14,
+    "max_seconds": 600.0,
+    "call_timeout_seconds": 30.0
+  },
+  "run_id": "9dbbad0f-07f6-4160-b8a6-c6ead4a7f0c3",
+  "mode": "real",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+  "goal": "Investigate this incident using operational evidence; abstain if inconclusive.",
+  "observations": [
+    {
+      "id": "e001",
+      "tool_name": "get_incident",
+      "service_name": "checkout-service",
+      "request_id": "192fbb86-57f4-443b-8581-ca7cc655fda0",
+      "data": {
+        "incident": {
+          "id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "service_name": "checkout-service",
+          "status": "open",
+          "opened_at": "2026-11-19T04:56:12.441224Z",
+          "resolved_at": null
+        }
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e002",
+      "tool_name": "get_service_metrics",
+      "service_name": "checkout-service",
+      "request_id": "e3106c37-402b-4ee8-97fb-f5ae72a7fce6",
+      "data": {
+        "items": [
+          {
+            "id": "a1a11e6d-5cc4-4186-b810-efa4bb35a0b3",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "requests": 30,
+            "errors": 27,
+            "error_rate": 0.9,
+            "avg_latency_ms": 98.633,
+            "p95_latency_ms": 100.0,
+            "max_latency_ms": 130.0,
+            "worker_utilization": 1.0,
+            "db_pool_utilization": 0.0,
+            "window_ms": 130.0,
+            "status_counts": {
+              "200": 3,
+              "503": 27
+            },
+            "created_at": "2026-11-19T04:56:12.477818Z"
+          },
+          {
+            "id": "b3559955-dd1f-4355-a4ff-dd3aba0a29d1",
+            "run_id": "e433ff72-1e0f-4309-ac36-671d824b2617",
+            "service_name": "checkout-service",
+            "incident_id": null,
+            "requests": 12,
+            "errors": 0,
+            "error_rate": 0.0,
+            "avg_latency_ms": 39.75,
+            "p95_latency_ms": 48.0,
+            "max_latency_ms": 48.0,
+            "worker_utilization": 0.1875,
+            "db_pool_utilization": 0.0,
+            "window_ms": 318.0,
+            "status_counts": {
+              "200": 12
+            },
+            "created_at": "2026-11-19T04:56:12.174651Z"
+          }
+        ],
+        "next_offset": null
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e003",
+      "tool_name": "search_service_logs",
+      "service_name": "checkout-service",
+      "request_id": "675702eb-bf24-40b5-98ff-971c105494bb",
+      "data": {
+        "items": [
+          {
+            "id": "ec3c3258-e576-480a-83c4-9e81d9d00e20",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "e123d67d-9fdd-4702-b459-36c51407e6d8",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "d39a4276-0fa2-4a3e-be31-94805ceea20f",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "ca33715f-7c7f-4d9b-9f3f-fa863fd5bd6d",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "c23cc7bc-b137-4f94-b159-d694ba1010e1",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "aec55275-bc2c-4d78-81ce-cf5ea547c6f9",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "adfcc351-06d1-44bf-bdcd-eb69acb8150a",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "9cfdad8a-ac0e-4bb0-b0aa-f394da5394d1",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "INFO",
+            "status_code": 200,
+            "latency_ms": 130.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "9c397bca-2427-49ce-8938-ba309039fa44",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          },
+          {
+            "id": "98e0d0d7-9df7-42d9-a9a8-0d36928e1ea5",
+            "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+            "service_name": "checkout-service",
+            "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+            "level": "ERROR",
+            "status_code": 503,
+            "latency_ms": 100.0,
+            "created_at": "2026-11-19T04:56:12.486037Z"
+          }
+        ],
+        "next_offset": 10
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e004",
+      "tool_name": "get_dependency_status",
+      "service_name": "checkout-service",
+      "request_id": "09e7e066-a2e0-4b26-b7ed-38eee63f7e26",
+      "data": {
+        "service_name": "checkout-service",
+        "dependencies": [
+          {
+            "service_name": "payment-service",
+            "observed_at": "2026-11-19T04:56:12.516628+00:00",
+            "status": "healthy",
+            "metric": {
+              "id": "c37fbc91-1656-4e4a-8709-765211161854",
+              "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+              "service_name": "payment-service",
+              "incident_id": null,
+              "requests": 3,
+              "errors": 0,
+              "error_rate": 0.0,
+              "avg_latency_ms": 13.667,
+              "p95_latency_ms": 16.0,
+              "max_latency_ms": 16.0,
+              "worker_utilization": 0.039423,
+              "db_pool_utilization": 0.0,
+              "window_ms": 130.0,
+              "status_counts": {
+                "200": 3
+              },
+              "created_at": "2026-11-19T04:56:12.516628Z"
+            }
+          },
+          {
+            "service_name": "inventory-service",
+            "observed_at": "2026-11-19T04:56:12.500708+00:00",
+            "status": "healthy",
+            "metric": {
+              "id": "03e79add-de12-4ed2-9cd3-07a346af8cbb",
+              "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+              "service_name": "inventory-service",
+              "incident_id": null,
+              "requests": 3,
+              "errors": 0,
+              "error_rate": 0.0,
+              "avg_latency_ms": 17.333,
+              "p95_latency_ms": 18.0,
+              "max_latency_ms": 18.0,
+              "worker_utilization": 0.05,
+              "db_pool_utilization": 0.034615,
+              "window_ms": 130.0,
+              "status_counts": {
+                "200": 3
+              },
+              "created_at": "2026-11-19T04:56:12.500708Z"
+            }
+          }
+        ]
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e005",
+      "tool_name": "list_recent_deployments",
+      "service_name": "checkout-service",
+      "request_id": "fd4a63a2-422c-4f1e-8e33-52466fe67300",
+      "data": {
+        "items": [
+          {
+            "id": "be1d62e5-3809-44be-ab6a-d37dcf474d5d",
+            "service_name": "checkout-service",
+            "created_at": "2026-11-19T04:56:12.125295Z",
+            "configuration": {}
+          }
+        ],
+        "next_offset": null
+      },
+      "untrusted_data": true
+    },
+    {
+      "id": "e006",
+      "tool_name": "get_service_health",
+      "service_name": "checkout-service",
+      "request_id": "030121d4-1841-49a0-a12d-07e0bb1de928",
+      "data": {
+        "service_name": "checkout-service",
+        "observed_at": "2026-11-19T04:56:12.477818+00:00",
+        "status": "degraded",
+        "metric": {
+          "id": "a1a11e6d-5cc4-4186-b810-efa4bb35a0b3",
+          "run_id": "a4c534ff-2671-48d3-8d93-6a9e669f6c6d",
+          "service_name": "checkout-service",
+          "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "requests": 30,
+          "errors": 27,
+          "error_rate": 0.9,
+          "avg_latency_ms": 98.633,
+          "p95_latency_ms": 100.0,
+          "max_latency_ms": 130.0,
+          "worker_utilization": 1.0,
+          "db_pool_utilization": 0.0,
+          "window_ms": 130.0,
+          "status_counts": {
+            "200": 3,
+            "503": 27
+          },
+          "created_at": "2026-11-19T04:56:12.477818Z"
+        }
+      },
+      "untrusted_data": true
+    }
+  ],
+  "evidence_references": [
+    "e001",
+    "e002",
+    "e003",
+    "e004",
+    "e005",
+    "e006"
+  ],
+  "tool_call_history": [
+    {
+      "tool_name": "get_incident",
+      "arguments": {
+        "service_name": "checkout-service",
+        "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+        "event_limit": 5
+      },
+      "outcome": "OK",
+      "evidence_ref": "e001",
+      "latency_ms": 297.0,
+      "request_id": "192fbb86-57f4-443b-8581-ca7cc655fda0",
+      "model_call": null
+    },
+    {
+      "tool_name": "get_service_metrics",
+      "arguments": {
+        "service_name": "checkout-service",
+        "limit": 5,
+        "offset": 0
+      },
+      "outcome": "OK",
+      "evidence_ref": "e002",
+      "latency_ms": 172.0,
+      "request_id": "e3106c37-402b-4ee8-97fb-f5ae72a7fce6",
+      "model_call": {
+        "id": "fc_f370696e-0e8f-4066-99e5-08dcff80a4e3",
+        "name": "select_diagnostic_tool",
+        "arguments": {
+          "tool_name": "get_service_metrics",
+          "service_name": "checkout-service",
+          "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "limit": 5,
+          "query": "",
+          "rationale": "No metrics or logs are currently available; obtaining recent service metrics will reveal latency, error rates, or throughput anomalies that could explain the open incident."
+        }
+      }
+    },
+    {
+      "tool_name": "search_service_logs",
+      "arguments": {
+        "service_name": "checkout-service",
+        "limit": 10,
+        "offset": 0,
+        "query": "",
+        "level": null
+      },
+      "outcome": "OK",
+      "evidence_ref": "e003",
+      "latency_ms": 1157.0,
+      "request_id": "675702eb-bf24-40b5-98ff-971c105494bb",
+      "model_call": {
+        "id": "fc_ad826056-c241-44e7-8497-836dae87d222",
+        "name": "select_diagnostic_tool",
+        "arguments": {
+          "tool_name": "search_service_logs",
+          "service_name": "checkout-service",
+          "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "limit": 10,
+          "query": "",
+          "rationale": "To confirm the nature of the 503 errors and identify any recurring request patterns or stack traces, request-level logs are needed. The metrics indicate high error rates but lack detail on request paths or error messages."
+        }
+      }
+    },
+    {
+      "tool_name": "get_dependency_status",
+      "arguments": {
+        "service_name": "checkout-service"
+      },
+      "outcome": "OK",
+      "evidence_ref": "e004",
+      "latency_ms": 2735.0,
+      "request_id": "09e7e066-a2e0-4b26-b7ed-38eee63f7e26",
+      "model_call": {
+        "id": "fc_0d85ed96-3af4-4920-8bcf-2e0f4fd8ba80",
+        "name": "select_diagnostic_tool",
+        "arguments": {
+          "tool_name": "get_dependency_status",
+          "service_name": "checkout-service",
+          "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "limit": 5,
+          "query": "",
+          "rationale": "To determine whether the 503 errors are caused by downstream services (e.g., inventory or payment) that checkout-service depends on. Dependency status will reveal if those services are unhealthy, which could explain the high error rate."
+        }
+      }
+    },
+    {
+      "tool_name": "list_recent_deployments",
+      "arguments": {
+        "service_name": "checkout-service",
+        "limit": 5,
+        "offset": 0
+      },
+      "outcome": "OK",
+      "evidence_ref": "e005",
+      "latency_ms": 250.0,
+      "request_id": "fd4a63a2-422c-4f1e-8e33-52466fe67300",
+      "model_call": {
+        "id": "fc_421a5686-74d6-425b-a592-997d29326faa",
+        "name": "select_diagnostic_tool",
+        "arguments": {
+          "tool_name": "list_recent_deployments",
+          "service_name": "checkout-service",
+          "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "limit": 5,
+          "query": "",
+          "rationale": "Recent deployments may have introduced configuration or code changes that caused the 503 errors. Listing the most recent deployments will provide context on any recent changes that could be correlated with the incident onset."
+        }
+      }
+    },
+    {
+      "tool_name": "get_service_health",
+      "arguments": {
+        "service_name": "checkout-service"
+      },
+      "outcome": "OK",
+      "evidence_ref": "e006",
+      "latency_ms": 969.0,
+      "request_id": "030121d4-1841-49a0-a12d-07e0bb1de928",
+      "model_call": {
+        "id": "fc_43234d52-5182-40ba-bafc-96d9098f6a53",
+        "name": "select_diagnostic_tool",
+        "arguments": {
+          "tool_name": "get_service_health",
+          "service_name": "checkout-service",
+          "incident_id": "f5d798e6-44ec-4dd1-86da-f134c82ed4b3",
+          "limit": 1,
+          "query": "",
+          "rationale": "The metrics and logs indicate a high 503 error rate and 100% worker utilization, but we need to confirm the service\u2019s health status to determine if it is flagged as unhealthy by the monitoring system, which could explain the errors."
+        }
+      }
+    }
+  ],
+  "current_hypotheses": [
+    {
+      "id": "h1",
+      "description": "The checkout-service is returning a high rate of 503 responses due to internal server errors.",
+      "supporting_evidence": [
+        "e002"
+      ],
+      "contradicting_evidence": []
+    },
+    {
+      "id": "h2",
+      "description": "The service is experiencing resource exhaustion: worker utilization is at 100% and the database pool is unused, leading to errors.",
+      "supporting_evidence": [
+        "e002"
+      ],
+      "contradicting_evidence": []
+    }
+  ],
+  "proposed_next_diagnostic_step": null,
+  "proposed_model_call": null,
+  "candidate_root_cause": null,
+  "proposed_remediation": null,
+  "confidence": 0.0,
+  "uncertainty": [
+    "A model decision could not be validated or completed."
+  ],
+  "run_status": "failed",
+  "errors": [
+    {
+      "node": "investigation_planning",
+      "code": "MODEL_HTTP_ERROR",
+      "message": "Model decision failed; no fixture substitution was made."
+    }
+  ],
+  "transitions": [
+    "triage",
+    "investigation_planning",
+    "readonly_mcp_execution",
+    "evidence_assessment",
+    "additional_investigation",
+    "investigation_planning",
+    "readonly_mcp_execution",
+    "evidence_assessment",
+    "additional_investigation",
+    "investigation_planning",
+    "readonly_mcp_execution",
+    "evidence_assessment",
+    "additional_investigation",
+    "investigation_planning",
+    "readonly_mcp_execution",
+    "evidence_assessment",
+    "additional_investigation",
+    "investigation_planning",
+    "readonly_mcp_execution",
+    "evidence_assessment",
+    "additional_investigation",
+    "investigation_planning",
+    "final_recommendation"
+  ],
+  "usage": {
+    "model_calls": 12,
+    "input_tokens": 43442,
+    "output_tokens": 5177,
+    "usage_complete": false,
+    "estimated_cost_usd": null
+  },
+  "assessment": {
+    "hypotheses": [
+      {
+        "id": "h1",
+        "description": "The checkout-service is returning a high rate of 503 responses due to internal server errors.",
+        "supporting_evidence": [
+          "e002"
+        ],
+        "contradicting_evidence": []
+      },
+      {
+        "id": "h2",
+        "description": "The service is experiencing resource exhaustion: worker utilization is at 100% and the database pool is unused, leading to errors.",
+        "supporting_evidence": [
+          "e002"
+        ],
+        "contradicting_evidence": []
+      }
+    ],
+    "decision": "investigate",
+    "justification": "Metrics from e002 show a 90% error rate with 503 status codes, worker utilization at 1.0, and zero database pool usage, indicating possible internal failures or resource constraints. Logs from e003 confirm repeated 503 responses. Dependency status from e004 shows downstream services healthy, narrowing the fault to checkout-service itself. Further investigation is required to determine the root cause.",
+    "confidence": 0.6,
+    "uncertainty": [
+      "Recent deployment history is missing, so configuration changes cannot be ruled out.",
+      "No detailed request-level latency breakdown is available to confirm if errors are due to timeouts or crashes.",
+      "Database pool usage is zero, but no information on connection pool limits or contention is provided."
+    ]
+  },
+  "triage": {
+    "summary": "The incident f5d798e6-44ec-4dd1-86da-f134c82ed4b3 for checkout-service is currently open with no additional operational evidence provided. No symptoms, metrics, logs, or deployment history are available to pinpoint a cause.",
+    "alternatives": [
+      "Investigate service health metrics to identify latency or error spikes",
+      "Review recent deployments for configuration changes or code updates"
+    ]
+  },
+  "recommendation": {
+    "status": "failed",
+    "summary": "Investigation did not establish a supported actionable diagnosis.",
+    "root_cause": null,
+    "proposed_remediation": null,
+    "evidence_refs": [],
+    "uncertainty": [
+      "A model decision could not be validated or completed."
+    ],
+    "automatic_action_executed": false
+  },
+  "latency_ms": 394219.0
+}
