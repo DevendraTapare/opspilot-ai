@@ -5,7 +5,7 @@ description = "Incident simulator, least-privilege MCP gateway, and LangGraph in
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "fastapi>=0.120,<1",
-  "pydantic>=2.12,<3",
+  "pydantic>=2.14.3,<3",
   "pydantic-settings>=2.11,<3",
   "sqlalchemy>=2.0.44,<2.1",
   "alembic>=1.17,<2",
