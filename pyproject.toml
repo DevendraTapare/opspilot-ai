@@ -12,7 +12,7 @@ dependencies = [
   "psycopg[binary]>=3.2.12,<4",
   "uvicorn>=0.38,<1",
   "mcp>=2.2,<3",
-  "langgraph>=1.2.19,<2",
+  "langgraph>=1.2.22,<2",
   "httpx2>=2.13,<3",
   "langgraph-checkpoint-postgres>=3.1.2,<5",
   "opentelemetry-sdk==1.45.1",
